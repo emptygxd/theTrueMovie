@@ -1,29 +1,54 @@
-import { http } from './shared/api/services';
-import { useQuery } from './shared/hooks/useQuery';
-import { MovieType } from './shared/types';
-import './movie.css';
+import { useNavigate } from 'react-router-dom';
+// import { useQuery } from '@tanstack/react-query';
 
-function App() {
-  // const {
-  //   isLoading,
-  //   isError,
-  //   data: products,
-  // } = useQuery<MovieType>(`http://www.omdbapi.com/?apikey=4287dec6&i=`, {
-  //   id: 'tt3896198',
+// import { http } from '../shared/api/services';
+
+import { MovieType } from '../shared/types';
+import { mockMovie } from '../entity/mock';
+
+import { useAppSelector } from '../shared/hooks/useAppSelector';
+
+import './movie.css';
+import { useDispatch } from 'react-redux';
+import { setNameAsync, userActions } from '../entity/slice';
+import { AppDispatch } from './store';
+
+function Layout() {
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ['products'],
+  //   queryFn: () => {
+  //     return http.get('?i=tt3896198');
+  //   },
+  //   select: data => data.data,
   // });
-  // const getData = async (id: string) => {
-  //   const result = await http.get(``);
-  //   return result.data;
-  // http.get('http://www.omdbapi.com/?apikey=4287dec6&i=tt3896198')
-  //http://www.omdbapi.com/?apikey=4287dec6&i=${id}
-  // };
-  const data = [JSON.parse(localStorage.getItem('data') || '')];
-  console.log(data);
+  // localStorage.setItem('data', JSON.stringify(data));
+  // const data = [JSON.parse(localStorage.getItem('data') || '')];
+  const nav = useNavigate();
+
+  const clickHandler = () => {
+    nav('/login');
+  };
+  const dispatch = useDispatch<AppDispatch>();
+
+  const dispatchHandler = async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000)).then(() =>
+      dispatch(userActions.addLetters('qw'))
+    );
+  };
+
+  const user = useAppSelector(state => state.user);
+
   return (
     <>
+      <div>User's name: {user.name ?? 'not found'}</div>
+      <button onClick={clickHandler}>login</button>
+      <button onClick={() => dispatch(setNameAsync('as'))}>
+        Добавить букв thync
+      </button>
+      <button onClick={dispatchHandler}>Добавить букв</button>
       {/* {isLoading && <div>Loading...</div>}
       {isError && <div>{isError}</div>} */}
-      {data.map((movie: MovieType) => (
+      {mockMovie.map((movie: MovieType) => (
         <div key={movie.imdbID} className="movie__container">
           <img src={movie.Poster} alt="" className="movie__poster" />
           <div className="movie__info">
@@ -138,4 +163,4 @@ function App() {
   );
 }
 
-export default App;
+export default Layout;

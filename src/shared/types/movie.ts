@@ -18,6 +18,14 @@ export type MovieType = {
       Source: string;
       Value: string;
     },
+    {
+      Source: string;
+      Value: string;
+    },
+    {
+      Source: string;
+      Value: string;
+    },
   ];
   Metascore: string;
   imdbRating: string;
@@ -30,4 +38,3 @@ export type MovieType = {
   Website: string;
   Response: string;
 };
-
