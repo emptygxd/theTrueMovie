@@ -1,0 +1,94 @@
+.header__container {
+  display: flex;
+  gap: 32px;
+}
+
+.header__menu {
+  font-family: 'Oxygen';
+  font-weight: 400;
+  font-size: 25px;
+  color: var(--text-color);
+
+  margin-left: 40px;
+  position: relative;
+}
+
+.lines-button {
+  position: relative;
+  width: 80px;
+  height: 40px;
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
+}
+.lines-button:focus {
+  outline: none;
+}
+
+.lines-button span {
+  display: block;
+  position: absolute;
+  left: 18px;
+  right: 18px;
+
+  height: 6px;
+  background: var(--text-color);
+  border-radius: 5px;
+}
+
+.lines-button span::before,
+.lines-button span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+
+  width: 100%;
+  height: 6px;
+  background-color: var(--text-color);
+  border-radius: 5px;
+}
+.lines-button span::before {
+  top: -11px;
+}
+.lines-button span::after {
+  bottom: -11px;
+}
+
+.lines {
+  background: none;
+}
+
+.lines span {
+  transition: background 0s 0.3s;
+}
+
+.lines span::before,
+.lines span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s;
+}
+.lines span::before {
+  transition-property: top, transform;
+}
+.lines span::after {
+  transition-property: bottom, transform;
+}
+
+.lines#close span {
+  background: none;
+}
+
+.lines#close span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.lines#close span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+.lines#close span::before,
+.lines#close span::after {
+  transition-delay: 0s, 0.3s;
+}
