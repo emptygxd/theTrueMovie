@@ -9,8 +9,8 @@ import { App } from './App';
 
 import { store } from './store';
 
-import '../../public/fonts/oxygen.css';
-import './index.css';
+import '@public/fonts/roboto.css';
+import './index.scss';
 
 const queryClient = new QueryClient();
 

@@ -3,9 +3,9 @@
   "tabWidth": 2,
   "semi": true,
   "singleQuote": true,
-  "bracketSameLine": true,
+  "bracketSameLine": false,
   "bracketSpacing": true,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "quoteProps": "as-needed",
   "jsxSingleQuote": false
 }

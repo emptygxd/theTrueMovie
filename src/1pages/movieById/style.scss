@@ -1,0 +1,32 @@
+.movie {
+  width: 100%;
+  min-height: 88vh;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 1200px;
+    padding: 50px;
+    background-color: var(--neutral-color);
+  }
+  &__poster {
+    width: 200px;
+    height: 300px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__alt-name {
+    color: var(--text-subtle-color);
+  }
+
+  &__plot {
+    width: 500px;
+  }
+}

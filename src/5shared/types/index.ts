@@ -1,1 +1,1 @@
-export type { MovieType } from './movie';
+export type * from './movie';

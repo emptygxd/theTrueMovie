@@ -1,0 +1,30 @@
+.movie__about {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &-title {
+    color: var(--text-subtle-color);
+    width: 130px;
+  }
+
+  &-value-arr > a {
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text-color);
+
+    &:hover {
+      color: var(--accent-color);
+    }
+
+    &:not(:last-child)::after {
+      color: var(--text-color);
+      content: ', ';
+    }
+  }
+}
+
+.mpaa {
+  border: 1px black solid;
+  padding: 4px;
+}
