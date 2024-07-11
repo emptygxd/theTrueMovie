@@ -1,19 +1,31 @@
 .movie {
-  width: 100%;
-  min-height: 88vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
 
-  &__container {
+  min-width: 1200px;
+  background-color: var(--neutral-color);
+
+  position: relative;
+
+  &__header {
     display: flex;
     justify-content: space-between;
-    min-width: 1200px;
-    padding: 50px;
-    background-color: var(--neutral-color);
+    align-items: center;
+    height: 500px;
+    z-index: 1;
+    background: radial-gradient(78.41% 100% at right, #1e1e1e00 50%, #171717);
   }
+
   &__poster {
-    width: 200px;
-    height: 300px;
+    // width: 400px;
+    // height: 600px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1200px;
+    height: 500px;
+    z-index: 0;
   }
 
   &__info {
@@ -22,11 +34,38 @@
     gap: 10px;
   }
 
-  &__alt-name {
+  &__main-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  & p {
     color: var(--text-subtle-color);
   }
 
   &__plot {
     width: 500px;
+    color: white;
+  }
+}
+.movie__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.content {
+  &__plot {
+    width: 1000px;
+    height: 400px;
+    background-color: var(--secondary-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;
+    padding: 24px;
+    line-height: 30px;
   }
 }

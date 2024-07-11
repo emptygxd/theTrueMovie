@@ -1,7 +1,7 @@
 // import { useQuery } from '@tanstack/react-query';
 
 // import { http } from '../shared/api/services';
-import { MovieById } from '@pages/movieById';
+import { MovieById } from 'pages/movieById';
 
 function Layout() {
   // const { isLoading, isError, data } = useQuery({

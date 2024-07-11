@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { themeSelector } from '@shared/theme/selectors';
+import { themeSelector } from 'shared/theme/selectors';
 
 import './style.scss';
 

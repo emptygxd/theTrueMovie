@@ -1,14 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
-import { userActions } from '../4entities/movie/slice';
+import { userActions } from '../../4entities/movie/slice';
+
+import './style.scss';
 
 export const Login = () => {
-  const nav = useNavigate();
+  // const nav = useNavigate();
 
-  const clickHandler = () => {
-    nav('/');
-  };
+  // const clickHandler = () => {
+  //   nav('/');
+  // };
 
   const dispatch = useDispatch();
 
@@ -31,32 +32,25 @@ export const Login = () => {
 
   return (
     <>
-      <p onClick={clickHandler}>Back</p>
-
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>Name</label>
+      <form onSubmit={submitHandler} className='form'>
+        <div className='form__unit'>
+          <label>Имя пользователя</label>
           <input type="text" name="name" />
         </div>
 
-        <div>
-          <label>Surname</label>
-          <input type="text" name="surname" />
+        <div className='form__unit'>
+          <label>Электронная почта</label>
+          <input type="mail" name="email"/>
         </div>
 
-        <div>
-          <label>Date</label>
-          <input type="text" name="date" />
+        <div className='form__unit'>
+          <label>Пароль</label>
+          <input type="password" name="password"  />
         </div>
 
-        <div>
-          <label>Position</label>
-          <input type="text" name="position" />
-        </div>
-
-        <div>
-          <label>Salary</label>
-          <input type="text" name="salary" />
+        <div className='form__unit'>
+          <label>Подтвердите пароль</label>
+          <input type="password" name="confirmPassword"/>
         </div>
 
         <button type="submit">submit</button>

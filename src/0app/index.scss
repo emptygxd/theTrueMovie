@@ -21,6 +21,8 @@
 }
 
 [data-theme='dark'] {
+  --primary-color: #af9fff;
+
   --background-color: #000000;
   --text-color: #071013;
   --link-color: #fb8f67;
@@ -68,6 +70,13 @@ h2 {
 
 h3 {
   font-weight: 400;
+  font-size: 20px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+h4 {
+  font-weight: 400;
   font-size: 17px;
   color: var(--text-color);
 }
@@ -82,4 +91,11 @@ a {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  min-height: 88vh;
+  display: flex;
+  justify-content: center;
 }

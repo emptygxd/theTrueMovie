@@ -32,8 +32,8 @@ const AboutBlock = ({
 
       {valueArr && (
         <div className={`movie__about-value-arr  ${className}`}>
-          {valueArr.map((value) => (
-            <Link style={style} to={`/${path}/${value}`}>
+          {valueArr.map((value,index) => (
+            <Link key={`${value}_${index}`} style={style} to={`/${path}/${value}`}>
               {value}
             </Link>
           ))}

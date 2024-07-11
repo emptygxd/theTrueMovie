@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { themeActions } from '@shared/theme';
-import { themeSelector } from '@shared/theme/selectors';
+import { themeActions } from 'shared/theme';
+import { themeSelector } from 'shared/theme/selectors';
 
 import './style.scss';
-import { Menu } from '@shared/components/menu/Menu';
-import { Toggle } from '@shared/components/toggle';
+import { Menu } from 'shared/components/menu/Menu';
+import { Toggle } from 'shared/components/toggle';
 
 export const Header = () => {
   const theme = useSelector(themeSelector);

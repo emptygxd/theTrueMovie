@@ -9,7 +9,7 @@ import { App } from './App';
 
 import { store } from './store';
 
-import '@public/fonts/roboto.css';
+import 'public/fonts/roboto.css';
 import './index.scss';
 
 const queryClient = new QueryClient();

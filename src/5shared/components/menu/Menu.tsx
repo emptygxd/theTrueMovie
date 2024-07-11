@@ -1,22 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FullscreenModal } from '@shared/components/modal';
-import { MENU_ROUTES } from '@shared/constants';
+import { FullscreenModal } from 'shared/components/modal';
+import { MENU_ROUTES } from 'shared/constants';
 
 import './style.scss';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // let padding: string = '0';
-  // const scrollWidth = ;
-  // console.log(scrollWidth);
-  // console.log(window.innerWidth);
-  // if (scrollWidth !== undefined) {
-  //   padding = window.innerWidth - scrollWidth + 'px';
-  //   console.log(padding);
-  // }
 
   const handleClick = () => {
     setIsOpen((prev) => {

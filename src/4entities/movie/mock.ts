@@ -116,7 +116,7 @@ export const mockMovie2: MovieType2[] = [
         enName: 'ed',
         enProfession: 'writer',
         id: 3134,
-        name: 'писатель dva nah',
+        name: 'писатель dva',
         photo:
           'https://image.openmoviedb.com/kinopoisk-st-images//actor_iphone/iphone360_25774.jpg',
         profession: 'писатель',

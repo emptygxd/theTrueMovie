@@ -1,8 +1,9 @@
-import { AboutBlock } from '@shared/components/about';
-import { MovieType, MovieType2 } from '@shared/types';
+import { AboutBlock } from 'shared/components/about';
+
+import { MovieType2 } from 'shared/types';
+import { formatNumberWithSpaces } from 'shared/helperFunctions';
 
 import './style.scss';
-import { formatNumberWithSpaces } from '@shared/helperFunctions';
 
 const AboutMovie = ({ movies }: { movies: MovieType2[] }) => {
   const hours = Math.floor(movies[0].movieLength / 60);
