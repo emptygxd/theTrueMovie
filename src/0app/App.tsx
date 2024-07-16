@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import Layout from '../1pages/Layout';
-import { Login } from '../1pages/login/Login';
+import { Login } from 'pages/login';
+import { Layout } from 'pages/Layout';
 import { MovieById } from 'pages/movieById';
 
 import { Header } from 'widgets/header';
@@ -22,7 +22,9 @@ export const App = () => {
 
           <Route path="/movies">
             <Route index element={<div>all movies</div>} />
-            <Route path=":movieId" element={<MovieById />} />
+            <Route path=":movieId" element={<MovieById />}>
+              <Route path="cast" element={<div>all actors of movie</div>} />
+            </Route>
           </Route>
 
           <Route path="/series">
@@ -38,6 +40,11 @@ export const App = () => {
           <Route path="/genres">
             <Route index element={<div>genres</div>} />
             <Route path=":genreName" element={<div>genre</div>} />
+          </Route>
+
+          <Route path="/actors">
+            <Route index element={<div>actors</div>} />
+            <Route path=":actorId" element={<div>actor </div>} />
           </Route>
 
           <Route path="*" element={<div>404</div>} />

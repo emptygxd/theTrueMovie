@@ -1,0 +1,40 @@
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  &__photo {
+    width: 100px;
+    height: 150px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  &__name {
+    font-size: 16px;
+    width: 110px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 15px;
+    width: 110px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__profession {
+    font-size: 15px;
+    width: 110px;
+    overflow: hidden;
+    text-align: center;
+  }
+}

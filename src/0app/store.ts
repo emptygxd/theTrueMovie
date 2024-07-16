@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userReducer } from '../4entities/movie/slice';
+
+import { userReducer } from 'entities/movie/slice';
 import { themeReducer } from 'shared/theme';
 
 export const store = configureStore({

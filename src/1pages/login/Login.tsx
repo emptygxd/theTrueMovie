@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { userActions } from '../../4entities/movie/slice';
+import { userActions } from 'entities/movie/slice';
 
 import './style.scss';
 
@@ -32,25 +32,25 @@ export const Login = () => {
 
   return (
     <>
-      <form onSubmit={submitHandler} className='form'>
-        <div className='form__unit'>
+      <form onSubmit={submitHandler} className="form">
+        <div className="form__unit">
           <label>Имя пользователя</label>
           <input type="text" name="name" />
         </div>
 
-        <div className='form__unit'>
+        <div className="form__unit">
           <label>Электронная почта</label>
-          <input type="mail" name="email"/>
+          <input type="mail" name="email" />
         </div>
 
-        <div className='form__unit'>
+        <div className="form__unit">
           <label>Пароль</label>
-          <input type="password" name="password"  />
+          <input type="password" name="password" />
         </div>
 
-        <div className='form__unit'>
+        <div className="form__unit">
           <label>Подтвердите пароль</label>
-          <input type="password" name="confirmPassword"/>
+          <input type="password" name="confirmPassword" />
         </div>
 
         <button type="submit">submit</button>

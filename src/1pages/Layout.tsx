@@ -3,7 +3,7 @@
 // import { http } from '../shared/api/services';
 import { MovieById } from 'pages/movieById';
 
-function Layout() {
+export function Layout() {
   // const { isLoading, isError, data } = useQuery({
   //   queryKey: ['products'],
   //   queryFn: () => {
@@ -20,5 +20,3 @@ function Layout() {
     </>
   );
 }
-
-export default Layout;

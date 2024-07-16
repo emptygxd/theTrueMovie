@@ -54,7 +54,7 @@ type Budget = {
   value: number;
 };
 
-type Country = {
+export type Country = {
   name: string;
 };
 
@@ -79,7 +79,7 @@ type Fees = {
   };
 };
 
-type Genre = {
+export type Genre = {
   name: string;
 };
 
@@ -89,14 +89,14 @@ type Name = {
   type: string;
 };
 
-type Person = {
-  description: string;
+export type Person = {
+  description?: string;
   enName: string;
-  enProfession: string;
+  enProfession?: string;
   id: number;
   name: string;
   photo: string;
-  profession: string;
+  profession?: string;
 };
 
 type Poster = {
