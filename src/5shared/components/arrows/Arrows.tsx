@@ -1,45 +1,51 @@
-import leftArrow from 'public/assets/left-arrow.png';
-import rightArrow from 'public/assets/right-arrow.png';
-import './style.scss';
-import { useState } from 'react';
+import { ArrowButton } from 'shared/components/arrowButtons';
 
-type Highlight = 'highlight' | 'half-highlight' | '';
+import './style.scss';
+import { useEffect, useState } from 'react';
 
 export const Arrows = () => {
-  const [isLeftHovered, setIsLeftHovered] = useState<Highlight>('');
-  const [isRightHovered, setIsRightHovered] = useState<Highlight>('');
+  const [isDisabledLeft, setIsDisabledLeft] = useState(true);
+  const [isDisabledRight, setIsDisabledRight] = useState(false);
+  const [offset, setOffset] = useState(0);
 
-  const onMouseOverLeftHandler = () => {
-    setIsLeftHovered('highlight');
-    setIsRightHovered('half-highlight');
+  const slider = document.querySelector('.actors__container');
+  
+  const onRightClickHandler = () => {
+    setOffset((prev) => prev - 1000);
   };
 
-  const onMouseOverRightHandler = () => {
-    setIsLeftHovered('half-highlight');
-    setIsRightHovered('highlight');
+  const onLeftClickHandler = () => {
+    setOffset((prev) => prev + 1000);
   };
 
-  const onMouseLeaveHandler = () => {
-    setIsLeftHovered('');
-    setIsRightHovered('');
+  const onRightHoverHandler = () => {
+    setOffset((prev) => prev - 10);
   };
 
+  const onLeftHoverHandler = () => {
+    setOffset((prev) => prev + 10);
+  };
+
+  useEffect(() => {
+    slider?.setAttribute('style', `transform: translateX(${offset}px)`);
+  });
   return (
     <>
-      <span
-        className={`arrow arrow__left ${isLeftHovered}`}
-        onMouseOver={onMouseOverLeftHandler}
-        onMouseLeave={onMouseLeaveHandler}
-      >
-        <img src={leftArrow} alt="left arrow" />
-      </span>
-      <span
-        className={`arrow arrow__right ${isRightHovered}`}
-        onMouseOver={onMouseOverRightHandler}
-        onMouseLeave={onMouseLeaveHandler}
-      >
-        <img src={rightArrow} alt="right arrow" />
-      </span>
+      <ArrowButton
+        direction="left"
+        isDisabled={isDisabledLeft}
+        onClick={onLeftClickHandler}
+        onMouseOver={onLeftHoverHandler}
+        onMouseOut={onRightHoverHandler}
+      />
+
+      <ArrowButton
+        direction="right"
+        isDisabled={isDisabledRight}
+        onClick={onRightClickHandler}
+        onMouseOver={onRightHoverHandler}
+        onMouseOut={onLeftHoverHandler}
+      />
     </>
   );
 };
