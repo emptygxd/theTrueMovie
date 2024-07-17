@@ -6,7 +6,7 @@ import { Person } from 'shared/types';
 import { Arrows } from 'shared/components/arrows';
 
 import './style.scss';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useHover } from 'usehooks-ts';
 
 type Props = {
@@ -19,12 +19,13 @@ export const Actors = ({ actors }: Props) => {
 
   return (
     <div className="actors">
+      {isHovered && <Arrows />}
+
       <div className="actors__details">
         <h2 className="section-header">В главных ролях</h2>
         <Link to={`/cast`}>Полный список</Link> {/** ПЕРЕДЕЛАТЬ НАВИГАЦИЮ */}
       </div>
 
-        <Arrows />
       <div ref={hoverRef} className="actors__container">
         {actors.map((actor: Person, index) => (
           <Actor key={index} actor={actor} />
