@@ -1,7 +1,7 @@
 // import { useQuery } from '@tanstack/react-query';
 
 // import { http } from '../shared/api/services';
-import { MovieById } from 'pages/movieById';
+import { MovieById } from 'pages';
 
 export function Layout() {
   // const { isLoading, isError, data } = useQuery({
@@ -14,9 +14,5 @@ export function Layout() {
   // localStorage.setItem('data', JSON.stringify(data));
   // const data = [JSON.parse(localStorage.getItem('data') || '')];
 
-  return (
-    <>
-      <MovieById />
-    </>
-  );
+  return <MovieById />;
 }

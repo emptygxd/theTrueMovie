@@ -46,7 +46,7 @@ const slice = createSlice({
       state.name += action.payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(setNameAsync.pending, () => {
         console.log('pending');
@@ -63,7 +63,7 @@ const slice = createSlice({
 export const setNameAsync = createAsyncThunk(
   'user/setNameAsync',
   async (value: string) => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     return value;
   }
 );

@@ -1,4 +1,4 @@
-import { MovieType, MovieType2 } from '../../5shared/types';
+import { MovieType, MovieType2 } from 'shared';
 
 export const mockMovie: MovieType[] = [
   {

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { themeSelector } from 'shared/theme/selectors';
+import { themeSelector } from 'shared';
 
 import './style.scss';
 
@@ -20,6 +20,7 @@ export const Toggle = ({ callback }: Props) => {
           id="checkbox"
           defaultChecked={theme === 'dark'}
         />
+
         <span className="slider"></span>
       </label>
     </div>

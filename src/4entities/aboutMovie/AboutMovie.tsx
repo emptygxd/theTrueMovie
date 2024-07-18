@@ -1,13 +1,12 @@
-import { AboutBlock } from 'shared/components/about';
-import { MovieType2 } from 'shared/types';
-import { formatNumberWithSpaces } from 'shared/helperFunctions';
+import { AboutBlock, MovieType2, formatNumberWithSpaces } from 'shared';
 
 import './style.scss';
 
-const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
+export const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
   return (
     <div className="about__container">
       <h2 className="section-header">О фильме</h2>
+
       <div className="about__content" key={movie.id}>
         <AboutBlock
           title="Страна"
@@ -47,5 +46,3 @@ const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
     </div>
   );
 };
-
-export default AboutMovie;

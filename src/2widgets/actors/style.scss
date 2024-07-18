@@ -23,7 +23,7 @@
     }
   }
 
-  &:hover .arrow {
+  &__wrapper:hover ~ .arrow {
     visibility: visible;
     opacity: 0.7;
   }
@@ -32,12 +32,7 @@
     display: flex;
     gap: 32px;
     padding: 0 27px;
-    padding-bottom: 400px;
+    padding-bottom: 40px;
     transition: 0.5s;
-
-    // &:hover .arrow {
-    //   visibility: visible;
-    //   opacity: 0.7;
-    // }
   }
 }

@@ -1,13 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { Login } from 'pages/login';
-import { Layout } from 'pages/Layout';
-import { MovieById } from 'pages/movieById';
+import { Login, Layout, MovieById } from 'pages';
 
-import { Header } from 'widgets/header';
+import { Header } from 'widgets';
 
-import { themeSelector } from 'shared/theme/selectors';
+import { themeSelector } from 'shared';
 
 export const App = () => {
   const theme = useSelector(themeSelector);

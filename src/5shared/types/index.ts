@@ -1,1 +1,1 @@
-export type * from './movie';
+export * from './movie';

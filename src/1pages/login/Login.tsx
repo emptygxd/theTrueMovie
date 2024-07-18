@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { userActions } from 'entities/movie/slice';
+import { userActions } from 'entities';
 
 import './style.scss';
 

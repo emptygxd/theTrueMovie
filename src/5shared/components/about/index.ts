@@ -1,1 +1,1 @@
-export {default as AboutBlock } from './AboutBlock'
+export * from './AboutBlock';

@@ -10,12 +10,10 @@ import axios from 'axios';
 
 // export default http;
 
-const http = axios.create({
+export const http = axios.create({
   baseURL: 'https://api.kinopoisk.dev/v1.4',
   headers: {
     Accept: 'application/json',
     'X-API-KEY': 'BXM4823-HK74VD0-NMMMZVX-KASR6X3',
   },
 });
-
-export default http;

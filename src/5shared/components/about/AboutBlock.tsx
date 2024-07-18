@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Country, Genre, Person } from 'shared/types';
+import { Country, Genre, Person } from 'shared';
 
 import './style.scss';
 
@@ -15,7 +15,7 @@ type Props = {
   className?: string;
 };
 
-const AboutBlock = ({
+export const AboutBlock = ({
   title,
   value,
   valueArr,
@@ -49,5 +49,3 @@ const AboutBlock = ({
     </div>
   );
 };
-
-export default AboutBlock;

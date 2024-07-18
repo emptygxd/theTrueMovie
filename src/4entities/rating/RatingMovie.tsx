@@ -1,22 +1,24 @@
+import classNames from 'classnames';
+
 import './style.scss';
 
-export const RatingMovie = ({ rating }: { rating: number }) => {
+type Props = {
+  rating: number;
+};
+
+export const RatingMovie = ({ rating }: Props) => {
   const isGreen = rating >= 7;
   const isRed = rating <= 5;
 
+  const ratingClass = classNames({
+    'movie__kpScore-value-green': isGreen,
+    'movie__kpScore-value-red': isRed,
+    'movie__kpScore-value-yellow': !isGreen && !isRed,
+  });
+
   return (
     <div className="movie__kpScore">
-      <span
-        className={
-          isGreen
-            ? 'movie__kpScore-value-green'
-            : isRed
-              ? 'movie__kpScore-value-red'
-              : 'movie__kpScore-value-yellow'
-        }
-      >
-        {rating}
-      </span>
+      <span className={ratingClass}>{rating}</span>
     </div>
   );
 };

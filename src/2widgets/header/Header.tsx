@@ -1,9 +1,7 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { themeActions } from 'shared/theme';
-import { themeSelector } from 'shared/theme/selectors';
-import { Menu } from 'shared/components/menu/Menu';
-import { Toggle } from 'shared/components/toggle';
+import { themeSelector, themeActions, Menu, Toggle } from 'shared';
 
 import './style.scss';
 
@@ -11,13 +9,13 @@ export const Header = () => {
   const theme = useSelector(themeSelector);
   const dispatch = useDispatch();
 
-  const changeTheme = () => {
+  const changeTheme = useCallback(() => {
     dispatch(
       themeActions.setTheme({
         theme: theme === 'light' ? 'dark' : 'light',
       })
     );
-  };
+  }, [dispatch, theme]);
 
   return (
     <div className="header">

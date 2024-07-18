@@ -1,15 +1,18 @@
 // import { useQuery } from '@tanstack/react-query';
 
-import { AboutMovie } from 'entities/aboutMovie';
-import { AboutPersons } from 'entities/aboutPersons';
-import { RatingMovie } from 'entities/rating';
-import { mockMovie2 as movie } from 'entities/movie/mock';
+import { Actors } from 'widgets';
 
+import {
+  AboutMovie,
+  AboutPersons,
+  RatingMovie,
+  mockMovie2 as movie,
+} from 'entities';
+
+import { scrollToAnchor } from 'shared';
 // import { http } from 'shared/api/services';
 
 import './style.scss';
-import { scrollToAnchor } from 'shared/helperFunctions';
-import { Actors } from 'widgets/actors';
 
 export function MovieById() {
   // const { isLoading, isError, data } = useQuery({
@@ -66,6 +69,7 @@ export function MovieById() {
             </div>
           </div>
         </div>
+
         <img
           src={movie.backdrop.url}
           alt="backdrop"

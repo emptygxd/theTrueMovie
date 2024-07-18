@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FullscreenModal } from 'shared/components/modal';
-import { MENU_ROUTES } from 'shared/constants';
+import { FullscreenModal, MENU_ROUTES } from 'shared';
 
 import './style.scss';
 
@@ -30,8 +29,10 @@ export const Menu = () => {
         <button className={`lines-button lines ${isOpen ? 'close' : ''}`}>
           <span></span>
         </button>
+
         <h3 className="menu__title">Menu</h3>
       </div>
+
       <FullscreenModal isOpen={isOpen}>
         {MENU_ROUTES.map((route) => (
           <Link onClick={handleClick} to={route.path} key={route.id}>

@@ -7,11 +7,11 @@ export default defineConfig({
   resolve: {
     alias: {
       public: '/public',
-      app: '/src/0app',
-      pages: '/src/1pages',
-      widgets: '/src/2widgets',
-      entities: '/src/4entities',
-      shared: '/src/5shared',
+      app: '/src/0app/index.ts',
+      pages: '/src/1pages/index.ts',
+      widgets: '/src/2widgets/index.ts',
+      entities: '/src/4entities/index.ts',
+      shared: '/src/5shared/index.ts',
     },
   },
 });

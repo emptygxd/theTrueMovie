@@ -1,5 +1,4 @@
-import { AboutBlock } from 'shared/components/about';
-import { Person } from 'shared/types';
+import { AboutBlock, Person } from 'shared';
 
 export const AboutPersons = ({ persons }: { persons: Person[] }) => {
   const writers = persons.filter((writer) => writer.enProfession === 'writer');
@@ -24,6 +23,7 @@ export const AboutPersons = ({ persons }: { persons: Person[] }) => {
   return (
     <div className="about__container">
       <h2 className="section-header">Съемочная группа</h2>
+
       <div className="about__content">
         <AboutBlock title="Режисер" valueArr={directors} />
 
