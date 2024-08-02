@@ -1,18 +1,22 @@
-// import { useQuery } from '@tanstack/react-query';
+import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-// import { http } from '../shared/api/services';
-import { MovieById } from 'pages';
+import { Header } from 'widgets';
+
+import { themeSelector } from 'shared';
 
 export function Layout() {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ['products'],
-  //   queryFn: () => {
-  //     return http.get('?i=tt3896198');
-  //   },
-  //   select: data => data.data,
-  // });
-  // localStorage.setItem('data', JSON.stringify(data));
-  // const data = [JSON.parse(localStorage.getItem('data') || '')];
+  const theme = useSelector(themeSelector);
 
-  return <MovieById />;
+  return (
+    <>
+      <div className="app" data-theme={theme}>
+        <Header />
+
+        <div className="container">
+          <Outlet />
+        </div>
+      </div>
+    </>
+  );
 }

@@ -10,16 +10,10 @@
   background-color: var(--neutral-color);
 
   &__unit {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  & input {
-    width: 250px;
-    height: 32px;
-    padding: 8px;
-    outline: none;
-    border-radius: 12px;
   }
 }

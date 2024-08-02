@@ -8,22 +8,22 @@ export const ROUTES = {
 export const MENU_ROUTES = [
   {
     id: 0,
-    name: 'Main',
+    name: 'Главная',
     path: ROUTES.MAIN,
   },
   {
     id: 1,
-    name: 'Movies',
+    name: 'Фильмы',
     path: ROUTES.MOVIES,
   },
   {
     id: 2,
-    name: 'Series',
+    name: 'Сериалы',
     path: ROUTES.SERIES,
   },
   {
     id: 3,
-    name: 'Login',
+    name: 'Войти',
     path: ROUTES.LOGIN,
   },
 ];

@@ -2,6 +2,13 @@ import { useDispatch } from 'react-redux';
 
 import { userActions } from 'entities';
 
+import {
+  StyledButton,
+  ShowPassword,
+  useShowPassword,
+  StyledInput,
+} from 'shared';
+
 import './style.scss';
 
 export const Login = () => {
@@ -10,6 +17,11 @@ export const Login = () => {
   // const clickHandler = () => {
   //   nav('/');
   // };
+  const { isHidden: isHiddenPassword, showPassword } = useShowPassword();
+  const {
+    isHidden: isHiddenConfirmPassword,
+    showPassword: showConfirmPassword,
+  } = useShowPassword();
 
   const dispatch = useDispatch();
 
@@ -34,26 +46,41 @@ export const Login = () => {
     <>
       <form onSubmit={submitHandler} className="form">
         <div className="form__unit">
-          <label>Имя пользователя</label>
-          <input type="text" name="name" />
+          <StyledInput type="text" name="name" placeholder="Имя пользователя" />
         </div>
 
         <div className="form__unit">
-          <label>Электронная почта</label>
-          <input type="mail" name="email" />
+          <StyledInput
+            type="mail"
+            name="email"
+            placeholder="Электронная почта"
+          />
         </div>
 
         <div className="form__unit">
-          <label>Пароль</label>
-          <input type="password" name="password" />
+          <StyledInput
+            type={isHiddenPassword === 'hidden' ? 'password' : 'text'}
+            name="password"
+            placeholder="Пароль"
+          />
+
+          <ShowPassword isHidden={isHiddenPassword} callback={showPassword} />
         </div>
 
         <div className="form__unit">
-          <label>Подтвердите пароль</label>
-          <input type="password" name="confirmPassword" />
+          <StyledInput
+            type={isHiddenConfirmPassword === 'hidden' ? 'password' : 'text'}
+            name="confirmPassword"
+            placeholder="Подтвердите пароль"
+          />
+
+          <ShowPassword
+            isHidden={isHiddenConfirmPassword}
+            callback={showConfirmPassword}
+          />
         </div>
 
-        <button type="submit">submit</button>
+        <StyledButton>Подтвердить</StyledButton>
       </form>
     </>
   );

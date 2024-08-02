@@ -1,1 +1,2 @@
-export * from './FullscreeenModal';
+export * from './fullscreenModal';
+export * from './userModal';

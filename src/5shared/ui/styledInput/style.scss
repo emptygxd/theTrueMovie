@@ -1,0 +1,44 @@
+.styledInput {
+  width: 250px;
+  height: 40px;
+  padding: 8px 16px;
+  outline: none;
+
+  font-size: 16px;
+
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid var(--accent-hover-color);
+  transition: 0.1s all ease;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    border-color: var(--accent-color);
+
+    & + label {
+      transform: translate(5px, -20px);
+      background-color: var(--neutral-color);
+      font-size: 14px;
+      color: var(--accent-color);
+      opacity: 1;
+    }
+  }
+
+  & + label {
+    position: absolute;
+    top: 9px;
+    left: 5px;
+    padding: 0 8px;
+    opacity: 0.6;
+
+    font-size: 18px;
+    color: var(--text-subtle-color);
+
+    pointer-events: none;
+    transition: 0.1s all ease;
+  }
+}

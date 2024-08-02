@@ -30,16 +30,15 @@ export const Menu = () => {
           <span></span>
         </button>
 
-        <h3 className="menu__title">Menu</h3>
+        <h3 className="menu__title">Меню</h3>
+        <FullscreenModal isOpen={isOpen}>
+          {MENU_ROUTES.map((route) => (
+            <Link onClick={handleClick} to={route.path} key={route.id}>
+              {route.name}
+            </Link>
+          ))}
+        </FullscreenModal>
       </div>
-
-      <FullscreenModal isOpen={isOpen}>
-        {MENU_ROUTES.map((route) => (
-          <Link onClick={handleClick} to={route.path} key={route.id}>
-            {route.name}
-          </Link>
-        ))}
-      </FullscreenModal>
     </>
   );
 };
