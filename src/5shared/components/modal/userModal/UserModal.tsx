@@ -1,23 +1,25 @@
-import { ReactNode } from 'react';
-import Modal from 'react-modal';
+// import { ReactNode } from 'react';
+
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
 type Props = {
-  isOpen: boolean;
-  children: ReactNode;
+  items: {
+    id: number;
+    name: string;
+    path: string;
+  }[];
 };
 
-export const UserModal = ({ isOpen, children }: Props) => {
+export const UserModal = ({ items }: Props) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      overlayClassName={'userModal__overlay'}
-      className={'userModal__content'}
-      ariaHideApp={false}
-      closeTimeoutMS={300}
-    >
-      {children}
-    </Modal>
+    <ul className="small-menu">
+      {items.map((item) => (
+        <li key={`${item.path}/${item.name}`} className="small-menu__item">
+          <Link to={item.path}>{item.name}</Link>
+        </li>
+      ))}
+    </ul>
   );
 };

@@ -1,51 +1,31 @@
-.FSModal__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 1;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-}
-
 .FSModal__content {
   position: fixed;
   top: 0;
   left: 0;
 
-  opacity: 0;
-  visibility: hidden;
-
   width: 100%;
   height: 100vh;
+  background-color: var(--primary-color);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--primary-color);
 
-  transform: translateY(-500px);
-  transition: transform 0.3s;
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 2;
+  transition: 0.3s;
 
   & > a {
-    color: var(--neutral-color);
     width: 200px;
-    line-height: 30px;
     border-radius: 8px;
+
+    line-height: 30px;
     text-align: center;
+    color: var(--neutral-color);
 
     &:hover {
       background-color: var(--accent-hover-color);
@@ -53,25 +33,14 @@
   }
 }
 
-.ReactModal__Content--after-open {
-  transform: translateY(0);
-}
-
-.ReactModal__Content--before-close {
-  transform: translateY(-500px);
-}
-
-// .ReactModal__Body--open {
-//   overflow-y: hidden;
-
-// }
-
-.ReactModal__Body--open .FSModal__content,
-.ReactModal__Html--open {
-  overflow: hidden;
-}
-
-.opened {
+.FSModal__overlay.opened .FSModal__content {
   opacity: 1;
+  transform: translateY(0px);
   visibility: visible;
+}
+
+.FSModal__overlay.hidden .FSModal__content {
+  transform: translateY(-500px);
+  visibility: hidden;
+  opacity: 0;
 }

@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import { ROUTES, UserModal } from 'shared';
-
-// import { UserModal } from '../modal/userModal/index';
+import { USER_MENU_ROUTES, UserModal } from 'shared';
 
 import user from 'public/assets/user.png';
 
@@ -22,20 +19,15 @@ export const UserPfp = () => {
 
   return (
     <>
-      <Link className="userPfp" to={ROUTES.LOGIN}>
-        <img
-          onMouseOver={onMouseOverHandler}
-          onMouseOut={onMouseOutHandler}
-          className="userPfp"
-          src={user}
-          alt="user profile picture"
-        />
-
-        <UserModal isOpen={isOpen}>
-          <Link to={ROUTES.LOGIN}>Войти</Link>
-          <Link to={ROUTES.MAIN}>Выйти</Link>
-        </UserModal>
-      </Link>
+      <div
+        className="userPfp__container"
+        onMouseOver={onMouseOverHandler}
+        onMouseOut={onMouseOutHandler}
+      >
+        <img className="userPfp" src={user} alt="user profile picture" />
+        
+        {isOpen && <UserModal items={USER_MENU_ROUTES} />}
+      </div>
     </>
   );
 };

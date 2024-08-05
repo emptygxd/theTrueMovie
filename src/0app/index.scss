@@ -1,7 +1,9 @@
 :root {
   --primary-color: #fb8f67;
-  --neutral-color: #ffffff;
   --background-color: #f7f7f7;
+
+  --neutral-color: #ffffff;
+  --neutral-hover-color: #d7d7d7;
 
   --accent-color: #f65a2a;
   --accent-hover-color: #ffb393;
@@ -93,6 +95,23 @@ a {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-color);
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-width: 1200px;
+  background-color: var(--neutral-color);
 }
 
 .container {

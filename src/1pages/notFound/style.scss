@@ -1,0 +1,19 @@
+.not-found {
+  &__container {
+    align-items: center;
+    padding-top: 120px;
+    gap: 26px;
+
+    & a {
+      display: inline-block;
+      color: var(--accent-color);
+      
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

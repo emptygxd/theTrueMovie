@@ -12,7 +12,7 @@
   transition: 0.1s all ease;
 
   &::placeholder {
-    color: transparent;
+    visibility: hidden;
   }
 
   &:focus,

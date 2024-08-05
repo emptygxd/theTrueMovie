@@ -7,9 +7,11 @@ import {
   ShowPassword,
   useShowPassword,
   StyledInput,
+  ROUTES,
 } from 'shared';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   // const nav = useNavigate();
@@ -18,10 +20,6 @@ export const Login = () => {
   //   nav('/');
   // };
   const { isHidden: isHiddenPassword, showPassword } = useShowPassword();
-  const {
-    isHidden: isHiddenConfirmPassword,
-    showPassword: showConfirmPassword,
-  } = useShowPassword();
 
   const dispatch = useDispatch();
 
@@ -43,45 +41,37 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <section className="form__container">
       <form onSubmit={submitHandler} className="form">
-        <div className="form__unit">
-          <StyledInput type="text" name="name" placeholder="Имя пользователя" />
+        <h2>Вход</h2>
+
+        <div className="login__container">
+          <div className="form__unit">
+            <StyledInput
+              type="mail"
+              name="email"
+              placeholder="Электронная почта"
+            />
+          </div>
+
+          <div className="form__unit">
+            <StyledInput
+              type={isHiddenPassword === 'hidden' ? 'password' : 'text'}
+              name="password"
+              placeholder="Пароль"
+            />
+
+            <ShowPassword isHidden={isHiddenPassword} callback={showPassword} />
+          </div>
         </div>
 
-        <div className="form__unit">
-          <StyledInput
-            type="mail"
-            name="email"
-            placeholder="Электронная почта"
-          />
+        <div className="form__buttons">
+          <StyledButton>Подтвердить</StyledButton>
+          <p>
+            Нет аккаунта? <Link to={ROUTES.REGISTRATION}>Жми!</Link>
+          </p>
         </div>
-
-        <div className="form__unit">
-          <StyledInput
-            type={isHiddenPassword === 'hidden' ? 'password' : 'text'}
-            name="password"
-            placeholder="Пароль"
-          />
-
-          <ShowPassword isHidden={isHiddenPassword} callback={showPassword} />
-        </div>
-
-        <div className="form__unit">
-          <StyledInput
-            type={isHiddenConfirmPassword === 'hidden' ? 'password' : 'text'}
-            name="confirmPassword"
-            placeholder="Подтвердите пароль"
-          />
-
-          <ShowPassword
-            isHidden={isHiddenConfirmPassword}
-            callback={showConfirmPassword}
-          />
-        </div>
-
-        <StyledButton>Подтвердить</StyledButton>
       </form>
-    </>
+    </section>
   );
 };

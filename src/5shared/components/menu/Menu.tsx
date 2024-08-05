@@ -12,12 +12,14 @@ export const Menu = () => {
     setIsOpen((prev) => {
       if (prev) {
         setTimeout(() => {
+          document.body.style.overflowY = 'auto';
           document.body.style.paddingRight = '';
         }, 300);
       } else {
         const root: HTMLElement | null = document.querySelector('#root');
         const offset: number = root?.offsetWidth || 0;
         document.body.style.paddingRight = window.innerWidth - offset + 'px';
+        document.body.style.overflowY = 'hidden';
       }
       return !prev;
     });
@@ -25,12 +27,15 @@ export const Menu = () => {
 
   return (
     <>
-      <div onClick={handleClick} className="menu">
-        <button className={`lines-button lines ${isOpen ? 'close' : ''}`}>
-          <span></span>
-        </button>
+      <div className="menu">
+        <div onClick={handleClick}>
+          <button className={`lines-button lines ${isOpen ? 'close' : ''}`}>
+            <span></span>
+          </button>
 
-        <h3 className="menu__title">Меню</h3>
+          <h3 className="menu__title">Меню</h3>
+        </div>
+
         <FullscreenModal isOpen={isOpen}>
           {MENU_ROUTES.map((route) => (
             <Link onClick={handleClick} to={route.path} key={route.id}>

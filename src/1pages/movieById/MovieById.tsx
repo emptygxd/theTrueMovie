@@ -33,7 +33,7 @@ export function MovieById() {
       {/* {isLoading && <div>Loading...</div>}
       {isError && <div>{isError}</div>} */}
 
-      <div key={movie.id} className="movie">
+      <section key={movie.id} className="movie">
         <MovieBackdrop movie={movie} />
 
         <div id="content" className="movie__content">
@@ -49,7 +49,7 @@ export function MovieById() {
 
           <Actors actors={movie.persons} />
         </div>
-      </div>
+      </section>
     </>
   );
 }

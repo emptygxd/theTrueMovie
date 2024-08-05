@@ -18,7 +18,7 @@ export const Header = () => {
   }, [dispatch, theme]);
 
   return (
-    <div className="header">
+    <section className="header">
       <div className="header__container">
         <Menu />
 
@@ -28,6 +28,6 @@ export const Header = () => {
           <UserPfp />
         </div>
       </div>
-    </div>
+    </section>
   );
 };

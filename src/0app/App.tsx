@@ -1,41 +1,67 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Login, Layout, MovieById } from 'pages';
+import { Login, Layout, MovieById, Registration, NotFound } from 'pages';
+import { ROUTES } from 'shared';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/login" element={<Login />} />
+        <Route path={ROUTES.REGISTRATION} element={<Registration />} />
 
-        <Route path="/movies">
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+
+        <Route path={ROUTES.LOGOUT} element={<div>logout</div>} />
+
+        <Route path={ROUTES.MOVIES}>
           <Route index element={<div>all movies</div>} />
-          <Route path=":movieId" element={<MovieById />}>
-            <Route path="cast" element={<div>all actors of movie</div>} />
+          <Route path={ROUTES.MOVIE_BY_ID} element={<MovieById />}>
+            <Route
+              path={ROUTES.CAST}
+              element={<div>all actors of movie</div>}
+            />
           </Route>
         </Route>
 
-        <Route path="/series">
+        <Route path={ROUTES.SERIES}>
           <Route index element={<div>all series</div>} />
-          <Route path=":seriesId" element={<div>the series by id</div>} />
+          <Route
+            path={ROUTES.SERIES_BY_ID}
+            element={<div>the series by id</div>}
+          >
+            <Route
+              path={ROUTES.CAST}
+              element={<div>all actors of series</div>}
+            />
+          </Route>
         </Route>
 
-        <Route path="/countries">
+        <Route path={ROUTES.COUNTRIES}>
           <Route index element={<div>all countries</div>} />
-          <Route path=":countryName" element={<div>country</div>} />
+          <Route path={ROUTES.COUNTRY} element={<div>country</div>} />
         </Route>
 
-        <Route path="/genres">
+        <Route path={ROUTES.GENRES}>
           <Route index element={<div>genres</div>} />
-          <Route path=":genreName" element={<div>genre</div>} />
+          <Route path={ROUTES.GENRE} element={<div>genre</div>} />
         </Route>
 
-        <Route path="/actors">
+        <Route path={ROUTES.PERSONS}>
           <Route index element={<div>actors</div>} />
-          <Route path=":actorId" element={<div>actor </div>} />
+          <Route path={ROUTES.PERSON} element={<div>actor </div>} />
         </Route>
 
-        <Route path="*" element={<div>404</div>} />
+        <Route path={ROUTES.USER}>
+          <Route index element={<div>user</div>} />
+          <Route path={ROUTES.USER_MOVIES} element={<div>USER_MOVIES </div>} />
+          <Route path={ROUTES.USER_SERIES} element={<div>USER_SERIES </div>} />
+          <Route
+            path={ROUTES.USER_PERSONS}
+            element={<div>USER_PERSONS </div>}
+          />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -2,7 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding: 8px 0;
+
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-10px);
+    background-color: var(--neutral-hover-color);
+  }
 
   &__photo {
     width: 100px;
@@ -18,23 +27,23 @@
   }
 
   &__name {
+    width: 120px;
     font-size: 16px;
-    width: 110px;
-    overflow: hidden;
     text-align: center;
+    overflow: hidden;
   }
 
   &__description {
+    width: 120px;
     font-size: 15px;
-    width: 110px;
-    overflow: hidden;
     text-align: center;
+    overflow: hidden;
   }
 
   &__profession {
+    width: 120px;
     font-size: 15px;
-    width: 110px;
-    overflow: hidden;
     text-align: center;
+    overflow: hidden;
   }
 }

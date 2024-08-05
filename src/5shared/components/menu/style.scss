@@ -1,10 +1,18 @@
 .menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  &__title {
+    z-index: inherit;
+  }
 
-  z-index: 2;
-  cursor: pointer;
+  & > div:first-child {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    cursor: pointer;
+    z-index: 3;
+  }
 }
 
 .lines-button {
@@ -15,6 +23,8 @@
   appearance: none;
   border: none;
   cursor: pointer;
+
+  z-index: 2;
 
   &:focus {
     outline: none;
