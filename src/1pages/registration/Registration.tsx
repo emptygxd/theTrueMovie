@@ -14,7 +14,7 @@ import {
 import './style.scss';
 import { Link } from 'react-router-dom';
 
-export const Registration = () => {
+const Registration = () => {
   // const nav = useNavigate();
 
   // const clickHandler = () => {
@@ -115,3 +115,5 @@ export const Registration = () => {
     </section>
   );
 };
+
+export default Registration;

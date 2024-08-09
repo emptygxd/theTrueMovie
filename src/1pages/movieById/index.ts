@@ -1,1 +1,1 @@
-export * from './MovieById';
+export { default as MovieById } from './MovieById';

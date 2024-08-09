@@ -6,8 +6,9 @@ import { Header } from 'widgets';
 import { themeSelector } from 'shared';
 
 import './style.scss';
+import { Suspense } from 'react';
 
-export function Layout() {
+const Layout = () => {
   const theme = useSelector(themeSelector);
 
   return (
@@ -16,9 +17,13 @@ export function Layout() {
         <Header />
 
         <div className="container">
-          <Outlet />
+          <Suspense fallback={<div>loading</div>}>
+            <Outlet />
+          </Suspense>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Layout;

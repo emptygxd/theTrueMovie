@@ -1,4 +1,4 @@
-import { AboutBlock, MovieType2, formatNumberWithSpaces } from 'shared';
+import { AboutBlock, MovieType2, ROUTES, formatNumberWithSpaces } from 'shared';
 
 import './style.scss';
 
@@ -11,10 +11,10 @@ export const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
         <AboutBlock
           title="Страна"
           valueArr={movie.countries}
-          path="countries"
+          path={ROUTES.COUNTRIES}
         />
 
-        <AboutBlock title="Жанры" valueArr={movie.genres} path="genres" />
+        <AboutBlock title="Жанры" valueArr={movie.genres} path={ROUTES.GENRES} />
 
         <AboutBlock
           title="Слоган"

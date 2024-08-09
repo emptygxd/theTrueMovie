@@ -1,8 +1,10 @@
-import { ROUTES } from 'shared';
-import './style.scss';
 import { Link } from 'react-router-dom';
 
-export const NotFound = () => {
+import { ROUTES } from 'shared';
+
+import './style.scss';
+
+const NotFound = () => {
   return (
     <section className="not-found__container">
       <h2>Что-то пошло не так =(</h2>
@@ -13,3 +15,5 @@ export const NotFound = () => {
     </section>
   );
 };
+
+export default NotFound;

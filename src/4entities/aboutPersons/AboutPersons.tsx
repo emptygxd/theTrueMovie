@@ -1,4 +1,4 @@
-import { AboutBlock, Person } from 'shared';
+import { AboutBlock, Person, ROUTES } from 'shared';
 
 export const AboutPersons = ({ persons }: { persons: Person[] }) => {
   const writers = persons.filter((writer) => writer.enProfession === 'writer');
@@ -25,19 +25,43 @@ export const AboutPersons = ({ persons }: { persons: Person[] }) => {
       <h2 className="section-header">Съемочная группа</h2>
 
       <div className="about__content">
-        <AboutBlock title="Режисер" valueArr={directors} />
+        <AboutBlock
+          title="Режисер"
+          valueArr={directors}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Сценарист" valueArr={writers} />
+        <AboutBlock
+          title="Сценарист"
+          valueArr={writers}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Продюсер" valueArr={producers} />
+        <AboutBlock
+          title="Продюсер"
+          valueArr={producers}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Оператор" valueArr={operators} />
+        <AboutBlock
+          title="Оператор"
+          valueArr={operators}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Композитор" valueArr={composers} />
+        <AboutBlock
+          title="Композитор"
+          valueArr={composers}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Дизайнер" valueArr={designers} />
+        <AboutBlock
+          title="Дизайнер"
+          valueArr={designers}
+          path={ROUTES.PERSONS}
+        />
 
-        <AboutBlock title="Монтаж" valueArr={editors} />
+        <AboutBlock title="Монтаж" valueArr={editors} path={ROUTES.PERSONS} />
       </div>
     </div>
   );

@@ -28,20 +28,20 @@ export const AboutBlock = ({
       <p className="movie__about-title">{title}</p>
 
       {value && (
-        <p style={style} className={`movie__about-value ${className}`}>
+        <p style={style} className={`movie__about-value ${className ?? ''}`}>
           {value}
         </p>
       )}
 
       {valueArr && (
-        <div className={`movie__about-value-arr  ${className}`}>
+        <div className={`movie__about-value-arr  ${className ?? ''}`}>
           {valueArr.map((value, index) => (
             <Link
               key={`${value.name}_${index}`}
               style={style}
               to={`/${path}/${value.name}`}
             >
-              {value.name}
+              {value.name ?? value.enName}
             </Link>
           ))}
         </div>

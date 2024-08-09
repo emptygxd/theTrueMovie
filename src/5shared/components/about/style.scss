@@ -8,18 +8,26 @@
     width: 180px;
   }
 
-  &-value-arr > a {
-    font-weight: 400;
-    font-size: 20px;
-    color: var(--text-color);
+  &-value{
+    width: 250px;
+  }
 
-    &:hover {
-      color: var(--accent-color);
-    }
+  &-value-arr {
+    width: 250px;
 
-    &:not(:last-child)::after {
+    & > a {
+      font-weight: 400;
+      font-size: 20px;
       color: var(--text-color);
-      content: ', ';
+  
+      &:hover {
+        color: var(--accent-color);
+      }
+  
+      &:not(:last-child)::after {
+        color: var(--text-color);
+        content: ', ';
+      }
     }
   }
 }
@@ -27,4 +35,5 @@
 .mpaa {
   border: 1px black solid;
   padding: 4px;
+  width: auto;
 }

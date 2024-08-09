@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import {
-  Login,
-  Layout,
-  MovieById,
-  Registration,
-  NotFound,
-  Movies,
-} from 'pages';
+import { Layout } from 'pages';
 import { ROUTES } from 'shared';
+import { lazy } from 'react';
+
+const Login = lazy(() => import('../1pages/login/Login'));
+const MovieById = lazy(() => import('../1pages/movieById/MovieById'));
+const Registration = lazy(() => import('../1pages/registration/Registration'));
+const NotFound = lazy(() => import('../1pages/notFound/NotFound'));
+const Movies = lazy(() => import('../1pages/movies/Movies'));
 
 export const App = () => {
   return (

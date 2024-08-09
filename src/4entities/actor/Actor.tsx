@@ -11,7 +11,12 @@ type Props = {
 export const Actor = ({ actor }: Props) => {
   return (
     <Link to={`/actors/${actor.id}`} className="actor">
-      <img className="actor__photo" src={actor.photo} alt="photo" />
+      <img
+        className="actor__photo"
+        loading="lazy"
+        src={actor.photo}
+        alt="photo"
+      />
 
       <div className="actor__info">
         <h3 className="actor__name">{actor.name}</h3>

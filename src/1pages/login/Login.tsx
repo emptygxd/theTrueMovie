@@ -13,7 +13,7 @@ import {
 import './style.scss';
 import { Link } from 'react-router-dom';
 
-export const Login = () => {
+const Login = () => {
   // const nav = useNavigate();
 
   // const clickHandler = () => {
@@ -76,3 +76,5 @@ export const Login = () => {
     </section>
   );
 };
+
+export default Login;

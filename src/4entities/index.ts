@@ -3,4 +3,5 @@ export * from './aboutPersons';
 export * from './actor';
 export * from './movie';
 export * from './movieBackdrop';
+export * from './moviesItemDescription';
 export * from './rating';

@@ -1,4 +1,5 @@
-// import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 import { Actors } from 'widgets';
 
@@ -6,32 +7,30 @@ import {
   AboutMovie,
   AboutPersons,
   MovieBackdrop,
-  mockMovie2 as movie,
+  // mockMovie2 as movie,
 } from 'entities';
 
-// import { http } from 'shared/api/services';
+import { http } from 'shared';
 
 import './style.scss';
 
-export function MovieById() {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ['movie'],
-  //   queryFn: () => {
-  //     return http.get('/movie/361');
-  //   },
-  //   select: (data) => data.data,
-  // });
-  // console.log(data);
-  // // const resp = [JSON.parse(localStorage.getItem('data') || '')];
-  // localStorage.setItem('data', JSON.stringify(data));
-  // console.log('-------------------------------------');
+const MovieById = () => {
+  const { movieId } = useParams();
 
-  // console.log(resp);
+  const { isLoading, isError, data: movie } = useQuery({
+    queryKey: ['movie'],
+    queryFn: () => {
+      return http.get(`/movie/${movieId}`);
+    },
+    select: (data) => data.data,
+  });
+
+  // const movie = JSON.parse(localStorage.getItem('data') || '');
 
   return (
     <>
-      {/* {isLoading && <div>Loading...</div>}
-      {isError && <div>{isError}</div>} */}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>{isError}</div>}
 
       <section key={movie.id} className="movie">
         <MovieBackdrop movie={movie} />
@@ -52,4 +51,6 @@ export function MovieById() {
       </section>
     </>
   );
-}
+};
+
+export default MovieById;
