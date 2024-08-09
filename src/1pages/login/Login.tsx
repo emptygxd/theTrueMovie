@@ -68,7 +68,8 @@ export const Login = () => {
         <div className="form__buttons">
           <StyledButton>Подтвердить</StyledButton>
           <p>
-            Нет аккаунта? <Link to={ROUTES.REGISTRATION}>Жми!</Link>
+            Нет аккаунта?{' '}
+            <Link to={ROUTES.REGISTRATION}>Зарегистрироваться</Link>
           </p>
         </div>
       </form>

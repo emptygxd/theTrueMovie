@@ -7,6 +7,8 @@ type Props = {
 };
 
 export const RatingMovie = ({ rating }: Props) => {
+  const roundedRating = Number(rating.toPrecision(2));
+
   const isGreen = rating >= 7;
   const isRed = rating <= 5;
 
@@ -14,11 +16,12 @@ export const RatingMovie = ({ rating }: Props) => {
     'movie__kpScore-value-green': isGreen,
     'movie__kpScore-value-red': isRed,
     'movie__kpScore-value-yellow': !isGreen && !isRed,
+    'movie__kpScore-value-gray': roundedRating === 0,
   });
 
   return (
     <div className="movie__kpScore">
-      <span className={ratingClass}>{rating}</span>
+      <span className={ratingClass}>{roundedRating}</span>
     </div>
   );
 };

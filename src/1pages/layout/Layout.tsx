@@ -5,6 +5,8 @@ import { Header } from 'widgets';
 
 import { themeSelector } from 'shared';
 
+import './style.scss';
+
 export function Layout() {
   const theme = useSelector(themeSelector);
 

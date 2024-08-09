@@ -6,7 +6,7 @@ import './style.scss';
 
 export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
   const hours = Math.floor(movie.movieLength / 60);
-  const rating = Number(movie.rating.kp.toPrecision(2));
+  const minutes = movie.movieLength % 60;
 
   const onAnchorClick = () => scrollToAnchor('content');
 
@@ -29,9 +29,9 @@ export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
               <p className="movie__alt-name">
                 {movie.alternativeName} {movie.ageRating}+
               </p>
-              <p>{`${hours} ч. ${movie.movieLength - hours * 60} мин.`}</p>
+              <p>{`${hours} ч. ${minutes} мин.`}</p>
 
-              <RatingMovie rating={rating} />
+              <RatingMovie rating={movie.rating.kp} />
             </div>
 
             <h4 className="movie__plot">{movie.shortDescription}</h4>

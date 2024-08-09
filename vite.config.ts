@@ -10,6 +10,7 @@ export default defineConfig({
       app: '/src/0app/index.ts',
       pages: '/src/1pages/index.ts',
       widgets: '/src/2widgets/index.ts',
+      features: '/src/3features/index.ts',
       entities: '/src/4entities/index.ts',
       shared: '/src/5shared/index.ts',
     },

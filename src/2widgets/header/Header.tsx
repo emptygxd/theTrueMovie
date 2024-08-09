@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Search } from 'features';
+
 import { themeSelector, themeActions, Menu, Toggle, UserPfp } from 'shared';
 
 import './style.scss';
@@ -20,8 +22,11 @@ export const Header = () => {
   return (
     <section className="header">
       <div className="header__container">
-        <Menu />
+        <div className="header__left">
+          <Menu />
 
+          <Search />
+        </div>
         <div className="header__right">
           <Toggle callback={changeTheme} />
 

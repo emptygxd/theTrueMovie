@@ -108,7 +108,7 @@ export const Registration = () => {
         <div className="form__buttons">
           <StyledButton>Подтвердить</StyledButton>
           <p>
-            Уже есть аккаунт? <Link to={ROUTES.LOGIN}>Жми!</Link>
+            Уже есть аккаунт? <Link to={ROUTES.LOGIN}>Войти</Link>
           </p>
         </div>
       </form>

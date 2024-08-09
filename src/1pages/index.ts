@@ -2,5 +2,6 @@ export * from './movieById';
 export * from './login';
 export * from './Main';
 export * from './registration';
+export * from './movies';
 export * from './notFound';
-export * from './Layout';
+export * from './layout';

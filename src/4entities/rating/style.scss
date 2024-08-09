@@ -33,9 +33,14 @@
       &-yellow {
         background-color: var(--metascore-yellow);
       }
+
       &-red {
         background-color: var(--metascore-red);
         color: var(--neutral);
+      }
+
+      &-red {
+        background-color: var(--neutral-hover-color);
       }
     }
   }

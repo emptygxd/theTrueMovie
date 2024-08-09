@@ -1,6 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Login, Layout, MovieById, Registration, NotFound } from 'pages';
+import {
+  Login,
+  Layout,
+  MovieById,
+  Registration,
+  NotFound,
+  Movies,
+} from 'pages';
 import { ROUTES } from 'shared';
 
 export const App = () => {
@@ -14,7 +21,7 @@ export const App = () => {
         <Route path={ROUTES.LOGOUT} element={<div>logout</div>} />
 
         <Route path={ROUTES.MOVIES}>
-          <Route index element={<div>all movies</div>} />
+          <Route index element={<Movies />} />
           <Route path={ROUTES.MOVIE_BY_ID} element={<MovieById />}>
             <Route
               path={ROUTES.CAST}

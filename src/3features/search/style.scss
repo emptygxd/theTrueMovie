@@ -1,0 +1,41 @@
+.search {
+  width: 40px;
+  height: 40px;
+
+  padding-left: 40px;
+  background-color: var(--secondary-color);
+
+  border-radius: 30px;
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: width 0.3s;
+
+  &:focus {
+    width: 500px;
+    cursor: text;
+  }
+
+  &__container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+
+      width: 30px;
+      height: 30px;
+
+      cursor: pointer;
+    }
+  }
+}

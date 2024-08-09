@@ -1,0 +1,14 @@
+.app {
+  background-color: var(--background-color);
+
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+}

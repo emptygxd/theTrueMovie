@@ -52,14 +52,6 @@
   text-decoration: none;
 }
 
-.app {
-  background-color: var(--background-color);
-
-  width: 100%;
-  min-height: 100vh;
-  height: 100%;
-}
-
 h1 {
   font-weight: 700;
   font-size: 40px;
@@ -110,13 +102,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  min-width: 1200px;
+  width: 1200px;
   background-color: var(--neutral-color);
-}
-
-.container {
-  width: 100%;
-  min-height: 90vh;
-  display: flex;
-  justify-content: center;
 }
