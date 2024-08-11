@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { MoviesType } from 'pages';
 
@@ -7,35 +7,44 @@ import { http } from 'shared';
 export const useLoadMore = () => {
   const [movies, setMovies] = useState<MoviesType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isFetching, setIsFetching] = useState(true);
-  const [totalCount, setTotalCount] = useState(1);
+  const [isFetching, setIsFetching] = useState(false);
+  // const [totalCount, setTotalCount] = useState(1);
+  console.log(isFetching);
 
-  const scrollHandler = (e: Event) => {
-    const element = e.target as Document;
+  useEffect(()=>{
+    setIsFetching(true)
+  },[])
+  
+  const scrollHandler = useCallback(
+    (e: Event) => {
+      const element = e.target as Document;
 
-    if (
-      element.documentElement.scrollHeight -
-        (element.documentElement.scrollTop + window.innerHeight) <
-        100 &&
-      currentPage <= totalCount
-    ) {
-      setIsFetching(true);
-    }
-  };
+      if (
+        element.documentElement.scrollHeight -
+          (element.documentElement.scrollTop + window.innerHeight) <
+          100 &&
+        currentPage <= 5
+      ) {
+        setIsFetching(true);
+      }
+    },
+    [currentPage]
+  );
 
   useEffect(() => {
-    if (isFetching) {
+    if (isFetching && currentPage <= 5) {
       console.log('fetching');
+      setIsFetching(false)
       http
         .get(
           `/movie?page=${currentPage}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=top250`
         )
         .then((response) => {
-          setTotalCount(response.headers.get('x-ratelimit-limit'));
-          setMovies([...movies, ...response.data.docs]);
+         
+          setMovies((prev) => [...prev, ...response.data.docs]);
           setCurrentPage((prev) => prev + 1);
         })
-        .finally(() => setIsFetching(false));
+        // .finally(() => );
     }
   }, [isFetching]);
 
