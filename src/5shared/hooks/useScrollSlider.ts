@@ -25,17 +25,17 @@ export const useScrollSlider = (sliderName: string) => {
 
   useEffect(() => {
     const sliderWidth = slider?.scrollWidth;
-
+  
     if (offset >= -10) {
       setIsDisabledLeft(true);
     } else {
       setIsDisabledLeft(false);
     }
 
-    if (sliderWidth && sliderWidth + offset < 810) {
+    if (sliderWidth && sliderWidth + offset < 1200) {
       setIsDisabledRight(true);
     } else {
-      setIsDisabledRight(false);
+    setIsDisabledRight(false);
     }
 
     slider?.setAttribute('style', `transform: translateX(${offset}px)`);

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Actor } from 'entities';
 
-import { Person, Arrows } from 'shared';
+import { Person, Arrows, ROUTES } from 'shared';
 
 import './style.scss';
 
@@ -11,11 +11,12 @@ type Props = {
 };
 
 export const Actors = ({ actors }: Props) => {
+  const {movieId} = useParams()
   return (
     <div className="actors">
       <div className="actors__details">
         <h2 className="section-header">В главных ролях</h2>
-        <Link to={`/cast`}>Полный список</Link> {/** ПЕРЕДЕЛАТЬ НАВИГАЦИЮ */}
+        <Link to={`${ROUTES.MOVIES}/${movieId}/${ROUTES.CAST}`}>Полный список</Link> {/** ПЕРЕДЕЛАТЬ НАВИГАЦИЮ */}
       </div>
 
       <div className="actors__wrapper">

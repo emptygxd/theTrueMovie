@@ -1,4 +1,6 @@
-import { MoviesType } from 'pages';
+import { MoviesType } from 'entities';
+
+import './style.scss';
 
 type Props = {
   movie: MoviesType;

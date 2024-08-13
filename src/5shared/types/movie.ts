@@ -65,11 +65,11 @@ type ExternalId = {
 };
 
 type Fees = {
-  russia: {
+  russia?: {
     value: number;
     currency: string;
   };
-  usa: {
+  usa?: {
     value: number;
     currency: string;
   };
@@ -94,7 +94,7 @@ export type Person = {
   enName: string;
   enProfession?: string;
   id: number;
-  name: string;
+  name: string | null;
   photo: string;
   profession?: string;
 };

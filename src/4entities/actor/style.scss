@@ -30,20 +30,29 @@
     width: 120px;
     font-size: 16px;
     text-align: center;
-    overflow: hidden;
   }
 
   &__description {
-    width: 120px;
     font-size: 15px;
     text-align: center;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 120px;
+    height: 18px;
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 36px;
+      position: relative;
+    }
   }
 
   &__profession {
     width: 120px;
     font-size: 15px;
     text-align: center;
-    overflow: hidden;
   }
 }

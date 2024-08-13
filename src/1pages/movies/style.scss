@@ -21,55 +21,5 @@
     &:hover {
       background-color: var(--neutral-hover-color);
     }
-
-    & img {
-      width: 144px;
-      height: 216px;
-    }
-
-    & h3 {
-      width: 192px;
-      height: 20px;
-      font-size: 16px;
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    & p {
-      width: 192px;
-      height: 15px;
-
-      font-size: 13px;
-      text-align: center;
-      color: var(--text-subtle-color);
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  &__poster {
-    position: relative;
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-
-    & span {
-      position: absolute;
-      top: 4px;
-      right: 28px;
-
-      width: 32px;
-      height: 29px;
-
-      padding: 5px;
-      border-radius: 5px;
-
-      font-size: 16px;
-    }
   }
 }

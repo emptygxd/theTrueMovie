@@ -14,7 +14,7 @@ export const ROUTES = {
 
   CAST: 'cast',
   PERSONS: '/persons',
-  PERSON: 'person',
+  PERSON: ':personId',
 
   REGISTRATION: '/registration',
   LOGIN: '/login',

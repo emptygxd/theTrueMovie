@@ -6,24 +6,24 @@ import { Loader, ROUTES, useLoadMore } from 'shared';
 
 import './style.scss';
 
-const Movies = () => {
-  const { isFetching, movies } = useLoadMore('top250');
-  localStorage.setItem('movies', JSON.stringify(movies));
+const Series = () => {
+  const { isFetching, movies: series } = useLoadMore('series-top250');
+  localStorage.setItem('series', JSON.stringify(series));
   if (isFetching) {
     return <Loader />;
   }
   // const movies = JSON.parse(localStorage.getItem('movies') || '');
 
-  console.log(movies);
+  console.log(series);
   return (
     <section className="movies">
-      {movies?.map((movie: MoviesType) => {
+      {series?.map((serial: MoviesType) => {
         return (
-          <Link to={`${ROUTES.MOVIES}/${movie.id}`} key={movie.id}>
+          <Link to={`${ROUTES.MOVIES}/${serial.id}`} key={serial.id}>
             <div className="movies__item">
-              <MoviesItem movie={movie} />
+              <MoviesItem movie={serial} />
 
-              <MoviesItemDescription movie={movie} />
+              <MoviesItemDescription movie={serial} />
             </div>
           </Link>
         );
@@ -32,4 +32,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Series;

@@ -14,7 +14,7 @@ export const http = axios.create({
   baseURL: 'https://api.kinopoisk.dev/v1.4',
   headers: {
     Accept: 'application/json',
-    // 'X-API-KEY': 'BXM4823-HK74VD0-NMMMZVX-KASR6X3',
-    'X-API-KEY': 'VD325FM-SDSMGH5-QBE4PD1-2JNX3Y3',
+    'X-API-KEY': 'BXM4823-HK74VD0-NMMMZVX-KASR6X3',
+    // 'X-API-KEY': 'VD325FM-SDSMGH5-QBE4PD1-2JNX3Y3',
   },
 });

@@ -14,24 +14,23 @@ import { http, Loader, MovieType2 } from 'shared';
 
 import './style.scss';
 
-const MovieById = () => {
-  const { movieId } = useParams();
+const ActorsById = () => {
+  const { personId } = useParams();
 
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ['movie'],
-  //   queryFn: () => {
-  //     return http.get(`/movie/${movieId}`);
-  //   },
-  //   select: (data) => data.data,
-  //   refetchOnWindowFocus: false,
-  // });
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ['person'],
+    queryFn: () => {
+      return http.get(`/person/${personId}`);
+    },
+    select: (data) => data.data,
+    refetchOnWindowFocus: false,
+  });
 
-  // const movie: MovieType2 = data;
-  // localStorage.setItem('movie', JSON.stringify(movie));
-  const movie: MovieType2 = JSON.parse(localStorage.getItem('movie') || '');
-
-  console.log(movie);
-
+  const person = data;
+  localStorage.setItem('person', JSON.stringify(person));
+  // const movie: MovieType2 = JSON.parse(localStorage.getItem('movie') || '');
+  // console.log(movie);
+  console.log(person);
   // if (isLoading) {
   //   return <Loader />;
   // }
@@ -41,7 +40,7 @@ const MovieById = () => {
   // }
   return (
     <>
-      <section key={movie.id} className="movie">
+      {/* <section key={movie.id} className="movie"> 
         <MovieBackdrop movie={movie} />
 
         <div id="content" className="movie__content">
@@ -57,9 +56,9 @@ const MovieById = () => {
 
           <Actors actors={movie.persons} />
         </div>
-      </section>
+      </section>  */}
     </>
   );
 };
 
-export default MovieById;
+export default ActorsById;

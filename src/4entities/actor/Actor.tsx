@@ -10,7 +10,7 @@ type Props = {
 
 export const Actor = ({ actor }: Props) => {
   return (
-    <Link to={`/actors/${actor.id}`} className="actor">
+    <Link to={`/persons/${actor.id}`} className="actor">
       <img
         className="actor__photo"
         loading="lazy"
@@ -19,10 +19,14 @@ export const Actor = ({ actor }: Props) => {
       />
 
       <div className="actor__info">
-        <h3 className="actor__name">{actor.name}</h3>
+        <h3 className="actor__name">
+          {actor.name ? actor.name : actor.enName}
+        </h3>
 
         {actor.description && (
-          <h4 className="actor__description">{actor.description}</h4>
+          <h4 title={actor.description} className="actor__description">
+            {actor.description}
+          </h4>
         )}
 
         {actor.profession && (

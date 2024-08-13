@@ -1,20 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { MoviesType } from 'pages';
+import { MoviesType } from 'entities';
 
 import { http } from 'shared';
 
-export const useLoadMore = () => {
+export const useLoadMore = (top: string) => {
   const [movies, setMovies] = useState<MoviesType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isFetching, setIsFetching] = useState(false);
-  // const [totalCount, setTotalCount] = useState(1);
-  console.log(isFetching);
+  const [isBlocked, setIsBlocked] = useState(false);
 
-  useEffect(()=>{
-    setIsFetching(true)
-  },[])
-  
+  useEffect(() => {
+    setIsFetching(true);
+  }, []);
+
   const scrollHandler = useCallback(
     (e: Event) => {
       const element = e.target as Document;
@@ -32,19 +31,24 @@ export const useLoadMore = () => {
   );
 
   useEffect(() => {
-    if (isFetching && currentPage <= 5) {
-      console.log('fetching');
-      setIsFetching(false)
+    if (isFetching && currentPage <= 5 && !isBlocked) {
+      setIsFetching(false);
+      setIsBlocked(true);
+      setTimeout(() => {}, 1000);
       http
         .get(
-          `/movie?page=${currentPage}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=top250`
+          `/movie?limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=${top}&page=${currentPage}`
         )
         .then((response) => {
-         
           setMovies((prev) => [...prev, ...response.data.docs]);
           setCurrentPage((prev) => prev + 1);
         })
-        // .finally(() => );
+        .catch((error) => {
+          console.error('Ошибка при запросе:', error);
+        })
+        .finally(() => {
+          setIsBlocked(false);
+        });
     }
   }, [isFetching]);
 

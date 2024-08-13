@@ -1,0 +1,28 @@
+.movies {
+  & img {
+    width: 144px;
+    height: 216px;
+  }
+
+  &__poster {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    & span {
+      position: absolute;
+      top: 4px;
+      right: 28px;
+
+      width: 32px;
+      height: 29px;
+
+      padding: 5px;
+      border-radius: 5px;
+
+      font-size: 16px;
+    }
+  }
+}

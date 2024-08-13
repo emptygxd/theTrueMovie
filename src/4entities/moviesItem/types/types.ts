@@ -2,12 +2,12 @@ type Genre = {
   name: string;
 };
 
-type Poster = {
+export type Poster = {
   previewUrl: string | null;
   url: string | null;
 };
 
-type Rating = {
+export type Rating = {
   await: number | null;
   filmCritics: number | null;
   imdb: number | null;

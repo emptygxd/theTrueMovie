@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-import { USER_MENU_ROUTES, UserModal } from 'shared';
+import { ROUTES, USER_MENU_ROUTES, UserModal } from 'shared';
 
 import user from 'public/assets/user.png';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 export const UserPfp = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +25,9 @@ export const UserPfp = () => {
         onMouseOver={onMouseOverHandler}
         onMouseOut={onMouseOutHandler}
       >
-        <img className="userPfp" src={user} alt="user profile picture" />
-        
+        <Link to={ROUTES.REGISTRATION}>
+          <img className="userPfp" src={user} alt="user profile picture" />
+        </Link>
         {isOpen && <UserModal items={USER_MENU_ROUTES} />}
       </div>
     </>
