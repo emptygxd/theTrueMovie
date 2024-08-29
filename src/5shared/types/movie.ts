@@ -56,6 +56,7 @@ type Budget = {
 
 export type Country = {
   name: string;
+  enName?: string;
 };
 
 type ExternalId = {
@@ -81,6 +82,7 @@ type Fees = {
 
 export type Genre = {
   name: string;
+  enName?: string;
 };
 
 type Name = {
@@ -116,6 +118,11 @@ type Rating = {
   imdb: number;
   kp: number;
   russianFilmCritics: number;
+};
+
+type ReleaseYears = {
+  start: number;
+  end: number;
 };
 
 type Votes = {
@@ -164,6 +171,7 @@ export type MovieType2 = {
   poster: Poster;
   premiere: Premiere;
   rating: Rating;
+  releaseYears: ReleaseYears[];
   ratingMpaa: string;
   seriesLength: number | null;
   shortDescription: string;

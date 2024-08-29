@@ -1,0 +1,26 @@
+.movies {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 208px;
+    height: fit-content;
+    padding: 8px;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--neutral-hover-color);
+    }
+  }
+}

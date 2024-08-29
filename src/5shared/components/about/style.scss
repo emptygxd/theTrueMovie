@@ -2,13 +2,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 8px 0;
 
   &-title {
     color: var(--text-subtle-color);
     width: 180px;
   }
 
-  &-value{
+  &-value {
     width: 250px;
   }
 
@@ -19,11 +20,11 @@
       font-weight: 400;
       font-size: 20px;
       color: var(--text-color);
-  
+
       &:hover {
         color: var(--accent-color);
       }
-  
+
       &:not(:last-child)::after {
         color: var(--text-color);
         content: ', ';

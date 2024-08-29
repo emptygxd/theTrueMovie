@@ -6,9 +6,35 @@
     padding: 0 40px;
   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  &__slogan {
+    color: var(--text-subtle-color);
+
+    &::before {
+      content: '«';
+    }
+
+    &::after {
+      content: '»';
+    }
+  }
+
+  &__no-info {
+    position: relative;
+    display: block;
+
+    height: 24px;
+    width: 30px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      height: 2px;
+      width: 30px;
+      background-color: var(--text-subtle-color);
+    }
   }
 }

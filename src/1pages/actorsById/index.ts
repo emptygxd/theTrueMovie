@@ -1,1 +1,2 @@
-export * from './ActorsById';
+export * from './types';
+export * from './ActorById';

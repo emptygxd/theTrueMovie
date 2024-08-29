@@ -1,0 +1,75 @@
+.dropdown__container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+div.react-select {
+  &__control {
+    width: 220px;
+    height: 40px;
+    background-color: var(--neutral-color);
+    border: 1px solid var(--accent-hover-color);
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: none;
+
+    &:hover {
+      border-color: var(--accent-color);
+    }
+
+    &--is-focused {
+      border-color: var(--accent-color);
+    }
+
+    &--menu-is-open {
+      & .react-select__indicator {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__value-container {
+    padding: 0 8px;
+  }
+
+  &__indicator {
+    padding: 0;
+    transition: 0.2s;
+  }
+
+  &__menu {
+    z-index: 5;
+    background-color: var(--neutral-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  &__option {
+    padding: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+
+    &--is-focused {
+      background-color: var(--secondary-color);
+    }
+
+    &:hover {
+      background-color: var(--secondary-color);
+    }
+
+    &--is-selected {
+      background-color: var(--accent-color);
+      color: var(--neutral-color);
+
+      &:hover {
+        background-color: var(--accent-color);
+      }
+    }
+  }
+}
+
+span.react-select__indicator-separator {
+  display: none;
+}

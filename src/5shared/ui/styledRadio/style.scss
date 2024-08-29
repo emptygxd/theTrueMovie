@@ -1,0 +1,23 @@
+.radio {
+  display: none;
+
+  & + label {
+    max-height: 40px;
+    padding: 11px 16px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--secondary-hover-color);
+    }
+  }
+
+  &:checked {
+    & + label {
+      background-color: var(--accent-color);
+    }
+  }
+}

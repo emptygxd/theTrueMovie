@@ -14,8 +14,6 @@ export const Menu = () => {
         document.body.style.overflowY = 'auto';
         document.body.style.paddingRight = '';
       } else {
-        const root: HTMLElement | null = document.querySelector('#root');
-
         const bodyWithScrollbar = document.body.offsetWidth;
         document.body.style.overflowY = 'hidden';
 
@@ -28,17 +26,7 @@ export const Menu = () => {
       return !prev;
     });
   };
-  //console.log(bodyWithScrollbar);
-  // console.log(bodyWithoutScrollbar);
-  // console.log(scrollbarWidth);
-  // const offset: number = root?.offsetWidth || 0;
-  // console.log(offset);
-  // const documentWidth: number = document.documentElement.clientWidth;
-  // console.log(documentWidth);
 
-  // document.body.style.paddingRight = documentWidth - offset + 'px';
-  // console.log(documentWidth - offset);
-  // document.body.style.overflowY = 'hidden';
   return (
     <>
       <div className="menu">

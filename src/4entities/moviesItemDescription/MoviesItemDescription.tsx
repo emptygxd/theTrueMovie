@@ -30,12 +30,14 @@ export const MoviesItemDescription = ({ movie }: Props) => {
         {movie.year}
       </p>
 
-      <p
-        title={`${movie.genres[0].name}${movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}`}
-      >
-        {movie.genres[0].name}
-        {movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}
-      </p>
+      {movie.genres[0] && (
+        <p
+          title={`${movie.genres[0].name}${movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}`}
+        >
+          {movie.genres[0].name}
+          {movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}
+        </p>
+      )}
     </div>
   );
 };

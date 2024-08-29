@@ -5,14 +5,16 @@ import { useSearchInput } from 'shared';
 import searchImg from 'public/assets/search.png';
 
 import './style.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const Search = () => {
   const [query, setQuery] = useState('');
   const ref = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate();
 
   const search = useCallback(() => {
     if (query !== '') {
-      console.log(query);
+      navigate(`search/${query}`);
     }
   }, [query]);
 

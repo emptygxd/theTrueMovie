@@ -1,35 +1,77 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-import { MoviesItem, MoviesItemDescription, MoviesType } from 'entities';
+import { MoviesList } from 'widgets';
 
-import { Loader, ROUTES, useLoadMore } from 'shared';
+import { Filters } from 'features';
+
+import { http, Loader, useCombineData, useLoadMore, useFilters } from 'shared';
 
 import './style.scss';
 
-const Movies = () => {
-  const { isFetching, movies } = useLoadMore('top250');
-  localStorage.setItem('movies', JSON.stringify(movies));
-  if (isFetching) {
+const AllStuff = () => {
+  const filters = useFilters();
+  const selectedType = filters.selectedType;
+  const selectedGenre = filters.selectedGenre;
+  const selectedCountry = filters.selectedCountry;
+
+  const { isLoading, isError, data, refetch } = useQuery({
+    queryKey: ['movies', selectedGenre, selectedCountry],
+    queryFn: () => {
+      const genreQuery = selectedGenre
+        ? `&genres.name=${selectedGenre.label}`
+        : '';
+      const countryQuery = selectedCountry
+        ? `&countries.name=${selectedCountry.label}`
+        : '';
+
+      return http.get(
+        `/movie?page=1&isSeries=${selectedType === 'Сериалы'}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=${selectedType === 'Сериалы' ? 'series-top250' : 'top250'}${genreQuery}${countryQuery}`
+      );
+    },
+    select: (data) => {
+      return {
+        docs: data.data.docs,
+        pages: data.data.pages,
+      };
+    },
+    refetchOnWindowFocus: false,
+  });
+
+  const { isFetching, movies, reset } = useLoadMore({
+    isMovie: true,
+    dataTotal: data?.pages,
+    selectedOption: selectedType,
+    selectedGenre,
+    selectedCountry,
+  });
+
+  const { combinedMovies } = useCombineData(data?.docs, movies);
+
+  useEffect(() => {
+    movies.splice(0, movies.length);
+    reset();
+    refetch();
+  }, [selectedType, selectedGenre, selectedCountry, refetch]);
+
+  if (isLoading) {
     return <Loader />;
   }
-  // const movies = JSON.parse(localStorage.getItem('movies') || '');
 
-  console.log(movies);
+  if (isError) {
+    console.log('error');
+  }
+
   return (
     <section className="movies">
-      {movies?.map((movie: MoviesType) => {
-        return (
-          <Link to={`${ROUTES.MOVIES}/${movie.id}`} key={movie.id}>
-            <div className="movies__item">
-              <MoviesItem movie={movie} />
-
-              <MoviesItemDescription movie={movie} />
-            </div>
-          </Link>
-        );
-      })}
+      <Filters filters={filters} />
+      <MoviesList
+        movies={combinedMovies}
+        pages={data?.pages}
+        isFetching={isFetching}
+      />
     </section>
   );
 };
 
-export default Movies;
+export default AllStuff;

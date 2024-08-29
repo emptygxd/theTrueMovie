@@ -7,16 +7,19 @@ import { Person, Arrows, ROUTES } from 'shared';
 import './style.scss';
 
 type Props = {
-  actors: Person[];
+  persons: Person[];
 };
 
-export const Actors = ({ actors }: Props) => {
-  const {movieId} = useParams()
+export const Actors = ({ persons }: Props) => {
+  const { movieId } = useParams();
+  const actors = persons.filter((actor) => actor.enProfession === 'actor');
   return (
     <div className="actors">
       <div className="actors__details">
         <h2 className="section-header">В главных ролях</h2>
-        <Link to={`${ROUTES.MOVIES}/${movieId}/${ROUTES.CAST}`}>Полный список</Link> {/** ПЕРЕДЕЛАТЬ НАВИГАЦИЮ */}
+        <Link to={`${ROUTES.MOVIES}/${movieId}/${ROUTES.CAST}`}>
+          Полный список
+        </Link>
       </div>
 
       <div className="actors__wrapper">

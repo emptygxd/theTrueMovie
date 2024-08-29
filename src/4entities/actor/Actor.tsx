@@ -28,10 +28,6 @@ export const Actor = ({ actor }: Props) => {
             {actor.description}
           </h4>
         )}
-
-        {actor.profession && (
-          <p className="actor__profession">{actor.profession}</p>
-        )}
       </div>
     </Link>
   );

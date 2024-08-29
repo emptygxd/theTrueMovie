@@ -27,41 +27,45 @@ export const AboutPersons = ({ persons }: { persons: Person[] }) => {
       <div className="about__content">
         <AboutBlock
           title="Режисер"
-          valueArr={directors}
+          valueArr={directors.length !== 0 ? directors : ' '}
           path={ROUTES.PERSONS}
         />
 
         <AboutBlock
           title="Сценарист"
-          valueArr={writers}
+          valueArr={writers.length !== 0 ? writers : ' '}
           path={ROUTES.PERSONS}
         />
 
         <AboutBlock
           title="Продюсер"
-          valueArr={producers}
+          valueArr={producers.length !== 0 ? producers : ' '}
           path={ROUTES.PERSONS}
         />
 
         <AboutBlock
           title="Оператор"
-          valueArr={operators}
+          valueArr={operators.length !== 0 ? operators : ' '}
           path={ROUTES.PERSONS}
         />
 
         <AboutBlock
           title="Композитор"
-          valueArr={composers}
+          valueArr={composers.length !== 0 ? composers : ' '}
           path={ROUTES.PERSONS}
         />
 
         <AboutBlock
           title="Дизайнер"
-          valueArr={designers}
+          valueArr={designers.length !== 0 ? designers : ' '}
           path={ROUTES.PERSONS}
         />
 
-        <AboutBlock title="Монтаж" valueArr={editors} path={ROUTES.PERSONS} />
+        <AboutBlock
+          title="Монтаж"
+          valueArr={editors.length !== 0 ? editors : ' '}
+          path={ROUTES.PERSONS}
+        />
       </div>
     </div>
   );

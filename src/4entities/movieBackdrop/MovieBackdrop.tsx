@@ -2,6 +2,9 @@ import { RatingMovie } from 'entities';
 
 import { StyledButton, MovieType2, scrollToAnchor } from 'shared';
 
+import backdrop from 'public/assets/backdrop.png';
+import poster from 'public/assets/poster.png';
+
 import './style.scss';
 
 export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
@@ -15,22 +18,33 @@ export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
       <div className="movie__header">
         <div>
           <img
-            src={movie.poster.url}
-            alt="backdrop"
+            src={movie.poster.url ?? poster}
+            alt="poster"
             className="movie__poster"
           />
-
           <div className="movie__info">
-            <h1 className="movie__title">
-              {movie.name} ({movie.year})
-            </h1>
+            {!movie.isSeries && (
+              <h1 className="movie__title">
+                {movie.name} {movie.year ? `(${movie.year})` : ''}
+              </h1>
+            )}
+            {movie.isSeries && (
+              <h1 className="movie__title">
+                {movie.name} (
+                {`${movie.releaseYears[0].start}-${movie.releaseYears[0].end}`})
+              </h1>
+            )}
 
             <div className="movie__main-info">
-              <p className="movie__alt-name">
-                {movie.alternativeName} {movie.ageRating}+
-              </p>
-              <p>{`${hours} ч. ${minutes} мин.`}</p>
+              {movie.alternativeName && movie.ageRating && (
+                <p className="movie__alt-name">
+                  {movie.alternativeName} {movie.ageRating}+
+                </p>
+              )}
 
+              {!movie.isSeries && <p>{`${hours} ч. ${minutes} мин.`}</p>}
+
+              {movie.isSeries && <p>{`${movie.seriesLength} мин.`}</p>}
               <RatingMovie rating={movie.rating.kp} />
             </div>
 
@@ -45,7 +59,7 @@ export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
       </div>
 
       <img
-        src={movie.backdrop.url}
+        src={movie.backdrop.url ?? backdrop}
         alt="backdrop"
         className="movie__backdrop"
       />

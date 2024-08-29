@@ -5,5 +5,8 @@ export * from './movie';
 export * from './movieBackdrop';
 export * from './moviesItem';
 export * from './moviesItemDescription';
+export * from './personFacts';
+export * from './personHeader';
 export * from './rating';
 export * from './user';
+export * from './zeroResults';
