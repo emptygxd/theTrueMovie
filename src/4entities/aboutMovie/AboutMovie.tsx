@@ -1,9 +1,50 @@
-import { AboutBlock, MovieType2, ROUTES, formatNumberWithSpaces } from 'shared';
+import { useQuery } from '@tanstack/react-query';
+
+import {
+  AboutBlock,
+  Loader,
+  MovieType,
+  Series,
+  formatNumberWithSpaces,
+  http,
+} from 'shared';
 
 import './style.scss';
 
-export const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
-  console.log(movie.genres.length);
+export const AboutMovie = ({ movie }: { movie: MovieType }) => {
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ['movie', movie.id],
+    queryFn: () => {
+      if (movie?.isSeries) {
+        return http
+          .get(`/season?movieId=${movie.id}`)
+          .then((response) => response.data.docs);
+      }
+      return Promise.reject('No series found');
+    },
+    enabled: movie?.isSeries,
+    refetchOnWindowFocus: false,
+  });
+
+  const series: Series[] = data;
+  let seriesAmount;
+
+  if (series) {
+    seriesAmount = series.reduce((acc, element) => {
+      return acc + element.episodesCount;
+    }, 0);
+  }
+
+  const type = movie.isSeries ? 'Сериалы' : 'Фильмы';
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <div>Error: {isError}</div>;
+  }
+
   return (
     <div className="about__container">
       <h2 className="section-header">О фильме</h2>
@@ -12,13 +53,13 @@ export const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
         <AboutBlock
           title="Страна"
           valueArr={movie.countries ?? ' '}
-          path={ROUTES.COUNTRIES}
+          path={`/movies?type=${type}&country=`}
         />
 
         <AboutBlock
           title="Жанры"
           valueArr={movie.genres.length !== 0 ? movie.genres : ' '}
-          path={ROUTES.GENRES}
+          path={`/movies?type=${type}&genre=`}
         />
 
         <AboutBlock
@@ -28,8 +69,8 @@ export const AboutMovie = ({ movie }: { movie: MovieType2 }) => {
         />
         {movie.isSeries && (
           <>
-            <AboutBlock title="Количество сезонов" value={``} />
-            <AboutBlock title="Количество серий" value={``} />
+            <AboutBlock title="Количество сезонов" value={series[0]?.number} />
+            <AboutBlock title="Количество серий" value={seriesAmount} />
 
             {movie.totalSeriesLength && (
               <AboutBlock

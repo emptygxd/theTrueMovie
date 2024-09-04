@@ -6,8 +6,7 @@ export const ROUTES = {
   SEARCH_RESULT: '/search',
   SEARCH_QUERY: ':query',
 
-  SERIES: '/series',
-  SERIES_BY_ID: ':seriesId',
+  SERIES: '/movies?type=Сериалы',
 
   COUNTRIES: '/countries',
   COUNTRY: ':country',
@@ -37,13 +36,13 @@ export const MENU_ROUTES = [
   },
   {
     id: 1,
-    name: 'Списки',
+    name: 'Фильмы',
     path: ROUTES.MOVIES,
   },
   {
     id: 2,
-    name: 'Люди',
-    path: ROUTES.PERSONS,
+    name: 'Сериалы',
+    path: ROUTES.SERIES,
   },
 ];
 

@@ -35,16 +35,18 @@ export const Filters = ({ filters }: Props) => {
   } = filters;
   return (
     <div className="movies__filters">
-      <StyledRadio
-        value="Фильмы"
-        selectedType={selectedType}
-        typeChangeHandler={typeChangeHandler}
-      />
-      <StyledRadio
-        value="Сериалы"
-        selectedType={selectedType}
-        typeChangeHandler={typeChangeHandler}
-      />
+      <div className="radio__container">
+        <StyledRadio
+          value="Фильмы"
+          selectedType={selectedType}
+          typeChangeHandler={typeChangeHandler}
+        />
+        <StyledRadio
+          value="Сериалы"
+          selectedType={selectedType}
+          typeChangeHandler={typeChangeHandler}
+        />
+      </div>
 
       <StyledDropdown
         options={GENRES}

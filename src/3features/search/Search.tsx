@@ -1,11 +1,11 @@
 import { useCallback, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useSearchInput } from 'shared';
 
 import searchImg from 'public/assets/search.png';
 
 import './style.scss';
-import { useNavigate } from 'react-router-dom';
 
 export const Search = () => {
   const [query, setQuery] = useState('');

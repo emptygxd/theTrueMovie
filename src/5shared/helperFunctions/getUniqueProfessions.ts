@@ -1,4 +1,4 @@
-import { PersonMovies } from 'pages';
+import { PersonMovies } from 'shared';
 
 export const getUniqueProfessions = (movies: PersonMovies): string[] => {
   const professionsSet = new Set<string>();

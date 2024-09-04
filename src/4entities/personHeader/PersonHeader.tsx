@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import { Person } from 'pages';
-
 import {
   AboutBlock,
   capitalizeFirstLetter,
@@ -9,6 +7,7 @@ import {
   formatGrowth,
   getAgeSuffix,
   getChildrenSuffix,
+  PersonFull,
   ROUTES,
 } from 'shared';
 
@@ -17,7 +16,7 @@ import noImage from 'public/assets/noImage.jpg';
 import './style.scss';
 
 type Props = {
-  person: Person;
+  person: PersonFull;
   spouses: string[];
 };
 
@@ -43,19 +42,27 @@ export const PersonHeader = ({ person, spouses }: Props) => {
           <div className="movie__about">
             <p className="movie__about-title">Дата рождения</p>
 
-            <p className="movie__about-value person__age">
-              {formatDate(new Date(person.birthday))}
-              <span className="person__age-separator"></span>
-              <span className="subtle-text">
-                {getAgeSuffix(person.age ?? 0)}
-              </span>
+            <p
+              className={`movie__about-value person__age${!person.birthday ? ' about__no-info' : ''}`}
+            >
+              {person.birthday && (
+                <>
+                  {formatDate(new Date(person.birthday))}
+                  <span className="person__age-separator"></span>
+                  <span className="subtle-text">
+                    {getAgeSuffix(person.age ?? 0)}
+                  </span>
+                </>
+              )}
             </p>
           </div>
 
           <div className="movie__about">
             <p className="movie__about-title">Место рождения</p>
 
-            <p className="movie__about-value-arr">
+            <p
+              className={`movie__about-value-arr${!person.birthPlace[0] ? ' about__no-info' : ''}`}
+            >
               {person.birthPlace.map((item, index) => {
                 if (index === person.birthPlace.length - 1) {
                   return (
@@ -69,7 +76,7 @@ export const PersonHeader = ({ person, spouses }: Props) => {
             </p>
           </div>
 
-          {person.spouses && (
+          {person.spouses[0] && (
             <div className="movie__about">
               <p className="movie__about-title">
                 {capitalizeFirstLetter(person.spouses[0].relation)}
@@ -80,9 +87,12 @@ export const PersonHeader = ({ person, spouses }: Props) => {
                     key={index}
                     className="movie__about-value-arr person__spouses"
                   >
-                    <Link to={`${ROUTES.PERSONS}/${spouse.id}`}>
-                      {spouses[index]}
-                    </Link>
+                    {spouses[index] !== '' && (
+                      <Link to={`${ROUTES.PERSONS}/${spouse.id}`}>
+                        {spouses[index]}
+                      </Link>
+                    )}
+                    {spouses[index] === '' && <p>?</p>}
                     {spouse.divorced ? `(${spouse.divorcedReason})` : ''}
                     <span className="subtle-text">
                       {getChildrenSuffix(spouse.children)}

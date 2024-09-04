@@ -4,7 +4,14 @@ import { useQuery } from '@tanstack/react-query';
 
 import { MoviesList } from 'widgets';
 
-import { http, Loader, useCombineData, useLoadMore } from 'shared';
+import {
+  http,
+  Loader,
+  MoviesType,
+  PAGE_TITLES,
+  useCombineData,
+  useLoadMore,
+} from 'shared';
 
 import './style.scss';
 
@@ -25,13 +32,18 @@ export const SearchResult = () => {
     refetchOnWindowFocus: false,
   });
 
-  const { isFetching, movies, reset } = useLoadMore({
+  useEffect(() => {
+    document.title = PAGE_TITLES.SEARCH;
+  }, []);
+
+  const { isFetching, movies, reset } = useLoadMore<MoviesType>({
     isMovie: false,
+    isCast: false,
     dataTotal: data?.pages,
     query,
   });
 
-  const { combinedMovies } = useCombineData(data?.docs, movies);
+  const { combinedMovies } = useCombineData<MoviesType>(data?.docs, movies);
 
   useEffect(() => {
     movies.splice(0, movies.length);
@@ -52,21 +64,6 @@ export const SearchResult = () => {
         pages={data?.pages}
         isFetching={isFetching}
       />
-      {/* <div className="movies__container">
-        {combinedMovies?.map((movie: MoviesType) => {
-          return (
-            <Link to={`${ROUTES.MOVIES}/${movie.id}`} key={movie.id}>
-              <div className="movies__item">
-                <MoviesItem movie={movie} />
-
-                <MoviesItemDescription movie={movie} />
-              </div>
-            </Link>
-          );
-        })}
-        {data?.pages === 0 && <ZeroResults />}
-      </div>
-      {isFetching && <SmallLoader />} */}
     </section>
   );
 };

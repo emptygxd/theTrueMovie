@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import { PersonMovies } from 'pages';
-
 import { RatingMovie } from 'entities';
 
-import { getUniqueProfessions, ROUTES, translateProfession } from 'shared';
+import {
+  getUniqueProfessions,
+  PersonMovies,
+  ROUTES,
+  translateProfession,
+} from 'shared';
 
 import './style.scss';
 

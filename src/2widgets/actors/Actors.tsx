@@ -30,7 +30,7 @@ export const Actors = ({ persons }: Props) => {
         </div>
       </div>
 
-      <Arrows />
+      <Arrows container=".actors__container" />
     </div>
   );
 };

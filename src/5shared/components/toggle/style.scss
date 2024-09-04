@@ -3,6 +3,16 @@
   width: 60px;
   height: 30px;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 20px;
+    height: 10px;
+  }
 }
 
 #checkbox {
@@ -35,6 +45,22 @@
     background-color: var(--neutral-color);
 
     transition: 0.4s;
+
+    @media (max-width: 768px) {
+      top: 2px;
+      left: 2px;
+
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 480px) {
+      top: 1px;
+      left: 1px;
+
+      width: 8px;
+      height: 8px;
+    }
   }
 
   &:checked + .slider {
@@ -44,6 +70,14 @@
       content: '';
       background-color: var(--text-color);
       transform: translateX(32px);
+
+      @media (max-width: 768px) {
+        transform: translateX(20px);
+      }
+
+      @media (max-width: 480px) {
+        transform: translateX(10px);
+      }
     }
   }
 }

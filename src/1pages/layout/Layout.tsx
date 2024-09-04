@@ -1,12 +1,12 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Header } from 'widgets';
 
-import { themeSelector } from 'shared';
+import { Loader, ScrollToTop, themeSelector } from 'shared';
 
 import './style.scss';
-import { Suspense } from 'react';
 
 const Layout = () => {
   const theme = useSelector(themeSelector);
@@ -17,9 +17,11 @@ const Layout = () => {
         <Header />
 
         <div className="container">
-          <Suspense fallback={<div>loading</div>}>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
+
+          <ScrollToTop />
         </div>
       </div>
     </>

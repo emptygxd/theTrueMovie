@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
 
-import { MoviesType } from 'entities';
+import { CastType, MoviesType } from 'shared';
 
-export const useCombineData = (data1: MoviesType[], data2?: MoviesType[]) => {
-  const [combinedMovies, setCombinedMovies] = useState<MoviesType[]>([]);
+type CombinedType = CastType | MoviesType;
+
+export const useCombineData = <T extends CombinedType>(
+  data1: T[],
+  data2: T[]
+) => {
+  const [combinedMovies, setCombinedMovies] = useState<T[]>([]);
 
   useEffect(() => {
-    const movieMap = new Map();
+    const movieMap = new Map<number, T>();
 
-    data1?.forEach((movie: MoviesType) => {
+    data1?.forEach((movie: T) => {
       movieMap.set(movie.id, movie);
     });
 
-    data2?.forEach((movie: MoviesType) => {
+    data2?.forEach((movie: T) => {
       movieMap.set(movie.id, movie);
     });
 

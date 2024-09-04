@@ -1,16 +1,12 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import { Actors } from 'widgets';
 
-import {
-  AboutMovie,
-  AboutPersons,
-  MovieBackdrop,
-  // mockMovie2 as movie,
-} from 'entities';
+import { AboutMovie, AboutPersons, MovieBackdrop } from 'entities';
 
-import { http, Loader, MovieType2 } from 'shared';
+import { http, Loader, MovieType } from 'shared';
 
 import './style.scss';
 
@@ -25,19 +21,20 @@ const MovieById = () => {
     select: (data) => data.data,
     refetchOnWindowFocus: false,
   });
+  const movie: MovieType = data;
 
-  const movie: MovieType2 = data;
-  localStorage.setItem('movie', JSON.stringify(movie));
-  // const movie: MovieType2 = JSON.parse(localStorage.getItem('movie') || '');
-
-  console.log(movie);
+  useEffect(() => {
+    if (movie) {
+      document.title = movie.name ?? movie.enName;
+    }
+  }, [movie]);
 
   if (isLoading) {
     return <Loader />;
   }
 
   if (isError) {
-    return <div>Error: {isError}</div>;
+    return <section>Error</section>;
   }
 
   return (

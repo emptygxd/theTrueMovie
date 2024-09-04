@@ -1,9 +1,11 @@
-import { Person } from 'pages';
+import parse from 'html-react-parser';
+
+import { PersonFull } from 'shared';
 
 import './style.scss';
 
 type Props = {
-  person: Person;
+  person: PersonFull;
 };
 
 export const PersonFacts = ({ person }: Props) => {
@@ -14,7 +16,7 @@ export const PersonFacts = ({ person }: Props) => {
       <div className="facts__container">
         {person.facts.map((fact, index) => (
           <p className="person__age-separator facts__item" key={index}>
-            {fact.value}
+            {parse(fact.value)}
           </p>
         ))}
       </div>

@@ -1,15 +1,15 @@
 .movies {
-  & img {
-    width: 144px;
-    height: 216px;
-  }
-
   &__poster {
     position: relative;
     width: 100%;
 
     display: flex;
     justify-content: center;
+
+    & img {
+      width: 144px;
+      height: 216px;
+    }
 
     & span {
       position: absolute;

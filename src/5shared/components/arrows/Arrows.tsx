@@ -1,6 +1,10 @@
 import { ArrowButton, useScrollSlider } from 'shared';
 
-export const Arrows = () => {
+type Props = {
+  container: string;
+};
+
+export const Arrows = ({ container }: Props) => {
   const {
     isDisabledLeft,
     isDisabledRight,
@@ -8,7 +12,7 @@ export const Arrows = () => {
     onLeftHoverHandler,
     onRightClickHandler,
     onRightHoverHandler,
-  } = useScrollSlider('.actors__container');
+  } = useScrollSlider(container);
 
   return (
     <>

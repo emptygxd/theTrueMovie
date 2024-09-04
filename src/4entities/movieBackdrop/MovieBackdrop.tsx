@@ -1,13 +1,13 @@
 import { RatingMovie } from 'entities';
 
-import { StyledButton, MovieType2, scrollToAnchor } from 'shared';
+import { StyledButton, MovieType, scrollToAnchor } from 'shared';
 
 import backdrop from 'public/assets/backdrop.png';
 import poster from 'public/assets/poster.png';
 
 import './style.scss';
 
-export const MovieBackdrop = ({ movie }: { movie: MovieType2 }) => {
+export const MovieBackdrop = ({ movie }: { movie: MovieType }) => {
   const hours = Math.floor(movie.movieLength / 60);
   const minutes = movie.movieLength % 60;
 

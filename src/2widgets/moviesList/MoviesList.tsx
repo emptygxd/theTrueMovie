@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import {
-  MoviesItem,
-  MoviesItemDescription,
-  MoviesType,
-  ZeroResults,
-} from 'entities';
+import { MoviesItem, MoviesItemDescription, ZeroResults } from 'entities';
 
-import { ROUTES, SmallLoader } from 'shared';
+import { MoviesType, ROUTES, SmallLoader } from 'shared';
 
 import './style.scss';
 

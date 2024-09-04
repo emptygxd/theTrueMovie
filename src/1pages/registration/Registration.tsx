@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { userActions } from 'entities';
@@ -9,17 +11,16 @@ import {
   StyledInput,
   StyledFileInput,
   ROUTES,
+  PAGE_TITLES,
 } from 'shared';
 
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const Registration = () => {
-  // const nav = useNavigate();
+  useEffect(() => {
+    document.title = PAGE_TITLES.REGISTRATION;
+  }, []);
 
-  // const clickHandler = () => {
-  //   nav('/');
-  // };
   const { isHidden: isHiddenPassword, showPassword } = useShowPassword();
 
   const {
@@ -36,12 +37,9 @@ const Registration = () => {
     dispatch(
       userActions.setUser({
         name: form.get('name') as string,
-        surname: form.get('surname') as string,
-        date: form.get('date') as string,
-        job: {
-          position: form.get('position') as string,
-          salary: Number(form.get('salary')),
-        },
+        email: form.get('email') as string,
+        password: form.get('password') as string,
+        photo: form.get('uploadFile') as string,
       })
     );
   };

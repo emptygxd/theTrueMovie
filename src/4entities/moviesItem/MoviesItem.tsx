@@ -1,4 +1,6 @@
-import { MoviesType, RatingMovie } from 'entities';
+import { RatingMovie } from 'entities';
+
+import { MoviesType } from 'shared';
 
 import noImage from 'public/assets/noImage.jpg';
 

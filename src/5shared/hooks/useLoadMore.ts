@@ -1,25 +1,29 @@
 import { useCallback, useEffect, useState, useRef } from 'react';
-import { MoviesType } from 'entities';
+
 import { Filter, http, Value } from 'shared';
 
 type Props = {
   isMovie: boolean;
   dataTotal: number;
+  isCast?: boolean;
   selectedOption?: Value;
   selectedGenre?: Filter | null;
   selectedCountry?: Filter | null;
   query?: string;
+  movieId?: string;
 };
 
-export const useLoadMore = ({
+export const useLoadMore = <T>({
   isMovie,
+  isCast,
   dataTotal,
   selectedOption,
   selectedGenre,
   selectedCountry,
   query,
+  movieId,
 }: Props) => {
-  const [movies, setMovies] = useState<MoviesType[]>([]);
+  const [movies, setMovies] = useState<T[]>([]);
   const [currentPage, setCurrentPage] = useState(2);
   const [isFetching, setIsFetching] = useState(false);
   const isBlockedRef = useRef(false);
@@ -34,6 +38,8 @@ export const useLoadMore = ({
 
       if (isMovie) {
         queryString = fetchMovies();
+      } else if (isCast) {
+        queryString = fetchCast();
       } else {
         queryString = fetchSearch();
       }
@@ -55,18 +61,25 @@ export const useLoadMore = ({
   }, [isFetching, currentPage, totalPages]);
 
   const fetchMovies = () => {
-    const genreQuery = selectedGenre
-      ? `&genres.name=${selectedGenre.label}`
-      : '';
-    const countryQuery = selectedCountry
-      ? `&countries.name=${selectedCountry.label}`
-      : '';
+    const genreQuery =
+      selectedGenre && selectedGenre.label !== 'Все жанры'
+        ? `&genres.name=${selectedGenre.label}`
+        : '';
+
+    const countryQuery =
+      selectedCountry && selectedCountry.label !== 'Все страны'
+        ? `&countries.name=${selectedCountry.label}`
+        : '';
 
     return `/movie?page=${currentPage}&isSeries=${selectedOption === 'Сериалы'}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=${selectedOption === 'Сериалы' ? 'series-top250' : 'top250'}${genreQuery}${countryQuery}`;
   };
 
   const fetchSearch = () => {
     return `/movie/search?page=${currentPage}&limit=50&query=${query}`;
+  };
+
+  const fetchCast = () => {
+    return `/person?page=${currentPage}&limit=50&movies.id=${movieId}`;
   };
 
   const scrollHandler = useCallback(

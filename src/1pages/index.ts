@@ -1,4 +1,5 @@
-export * from './actorsById';
+export * from './actorById';
+export * from './cast';
 export * from './layout';
 export * from './login';
 export * from './movieById';
@@ -6,4 +7,4 @@ export * from './movies';
 export * from './notFound';
 export * from './registration';
 export * from './searchResult';
-export * from './Main';
+export * from './main/Main';

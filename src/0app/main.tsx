@@ -5,11 +5,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider } from 'react-redux';
 
 import { App } from './App';
-// import MovieById from '../pages/MovieById';
 
 import { store } from './store';
 
 import 'public/fonts/roboto.css';
+
 import './index.scss';
 
 const queryClient = new QueryClient();

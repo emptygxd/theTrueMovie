@@ -33,20 +33,25 @@
   }
 
   &__description {
+    width: 120px;
+    height: 18px;
+
     font-size: 15px;
+
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 120px;
-    height: 18px;
+
     &-container {
+      position: relative;
+      
+      width: 120px;
+      height: 36px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 120px;
-      height: 36px;
-      position: relative;
     }
   }
 

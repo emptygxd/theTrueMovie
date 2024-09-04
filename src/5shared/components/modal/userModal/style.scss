@@ -33,6 +33,22 @@
     & a {
       display: block;
       padding: 7px 0 7px 24px;
+
+      @media (max-width: 768px) {
+        padding: 5px 0 5px 16px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 3px 0 3px 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      min-width: 200px;
+    }
+
+    @media (max-width: 480px) {
+      min-width: 100px;
     }
   }
 }

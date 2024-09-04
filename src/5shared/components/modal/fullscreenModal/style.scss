@@ -30,6 +30,11 @@
     &:hover {
       background-color: var(--accent-hover-color);
     }
+
+    @media (max-width: 480px) {
+      width: 100px;
+      line-height: 15px;
+    }
   }
 }
 

@@ -1,10 +1,47 @@
-import { ChangeEvent, useCallback, useState } from 'react';
-import { Filter, Value } from 'shared';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { Filter, getFiltersInitialState, Value } from 'shared';
 
 export const useFilters = () => {
-  const [selectedType, setSelectedType] = useState<Value>('Фильмы');
-  const [selectedGenre, setSelectedGenre] = useState<Filter | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<Filter | null>(null);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
+  const initialType =
+    searchParams.get('type') === 'Сериалы' ? 'Сериалы' : 'Фильмы';
+
+  const initialGenre = getFiltersInitialState({
+    genreToCheck: searchParams.get('genre') || '',
+    countryToCheck: '',
+  }).genreIS;
+
+  const initialCountry = getFiltersInitialState({
+    genreToCheck: '',
+    countryToCheck: searchParams.get('country') || '',
+  }).countryIS;
+
+  const [selectedType, setSelectedType] = useState<Value>(initialType);
+
+  const [selectedGenre, setSelectedGenre] = useState<Filter | null>(
+    initialGenre
+  );
+  const [selectedCountry, setSelectedCountry] = useState<Filter | null>(
+    initialCountry
+  );
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.append('type', selectedType);
+    if (selectedGenre && selectedGenre.label !== 'Все жанры') {
+      params.append('genre', selectedGenre.label);
+    }
+    if (selectedCountry && selectedCountry.label !== 'Все страны') {
+      params.append('country', selectedCountry.label);
+    }
+    navigate(`/movies?${params.toString()}`, { replace: true });
+  }, [selectedType, selectedGenre, selectedCountry, navigate]);
 
   const typeChangeHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

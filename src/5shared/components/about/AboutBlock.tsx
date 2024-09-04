@@ -56,7 +56,7 @@ export const AboutBlock = ({
               to={
                 path === ROUTES.PERSONS
                   ? `${path}/${value.id}`
-                  : `${path}/${value.name}`
+                  : `${path}${value.name}`
               }
             >
               {value.name ?? value.enName}

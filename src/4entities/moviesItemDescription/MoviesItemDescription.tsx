@@ -1,4 +1,4 @@
-import { MoviesType } from 'entities';
+import { MoviesType } from 'shared';
 
 import './style.scss';
 
@@ -19,25 +19,19 @@ export const MoviesItemDescription = ({ movie }: Props) => {
   }
 
   const russianName = movie.name ?? movie.alternativeName ?? '';
-  const altName = movie.alternativeName ? `${movie.alternativeName}, ` : '';
+  const altName = movie.name ? movie.alternativeName : null;
+  const altNameString = `${altName ?? ''}${altName && movie.year ? ', ' : ''}${movie.year ?? ''}`;
+
+  const genres = movie.genres ? movie.genres[0].name : null;
+  const genresString = `${genres ?? ''}${genres && movie.movieLength ? ', ' : ''}${movie.movieLength ? `${hoursString}${minutes} мин` : ''}`;
 
   return (
     <div className="movies__description">
       <h3 title={russianName}>{russianName}</h3>
 
-      <p title={`${movie.name ? `${altName}, ` : ''}${movie.year}`}>
-        {movie.name ? `${altName}` : ''}
-        {movie.year}
-      </p>
+      {altNameString && <p title={altNameString}>{altNameString}</p>}
 
-      {movie.genres[0] && (
-        <p
-          title={`${movie.genres[0].name}${movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}`}
-        >
-          {movie.genres[0].name}
-          {movie.movieLength ? `, ${hoursString}${minutes} мин` : ''}
-        </p>
-      )}
+      {genresString && <p title={genresString}>{genresString}</p>}
     </div>
   );
 };

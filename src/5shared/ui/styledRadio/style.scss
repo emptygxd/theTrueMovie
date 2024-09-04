@@ -13,6 +13,14 @@
     &:hover {
       background-color: var(--secondary-hover-color);
     }
+
+    @media (max-width: 768px) {
+      padding: 9px 11px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 7px 10px;
+    }
   }
 
   &:checked {

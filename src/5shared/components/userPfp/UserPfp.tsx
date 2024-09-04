@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { ROUTES, USER_MENU_ROUTES, UserModal } from 'shared';
 
 import user from 'public/assets/user.png';
 
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 export const UserPfp = () => {
   const [isOpen, setIsOpen] = useState(false);

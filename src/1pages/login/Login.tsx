@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { userActions } from 'entities';
@@ -8,17 +10,16 @@ import {
   useShowPassword,
   StyledInput,
   ROUTES,
+  PAGE_TITLES,
 } from 'shared';
 
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
-  // const nav = useNavigate();
+  useEffect(() => {
+    document.title = PAGE_TITLES.LOGIN;
+  }, []);
 
-  // const clickHandler = () => {
-  //   nav('/');
-  // };
   const { isHidden: isHiddenPassword, showPassword } = useShowPassword();
 
   const dispatch = useDispatch();
@@ -30,12 +31,9 @@ const Login = () => {
     dispatch(
       userActions.setUser({
         name: form.get('name') as string,
-        surname: form.get('surname') as string,
-        date: form.get('date') as string,
-        job: {
-          position: form.get('position') as string,
-          salary: Number(form.get('salary')),
-        },
+        email: form.get('email') as string,
+        password: form.get('password') as string,
+        photo: form.get('uploadFile') as string,
       })
     );
   };

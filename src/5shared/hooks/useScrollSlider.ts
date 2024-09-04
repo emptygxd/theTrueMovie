@@ -7,12 +7,22 @@ export const useScrollSlider = (sliderName: string) => {
 
   const slider = document.querySelector(sliderName);
 
+  const getScrollAmount = () => {
+    return window.innerWidth <= 480
+      ? 150
+      : window.innerWidth <= 768
+        ? 500
+        : 700;
+  };
+
   const onRightClickHandler = () => {
-    setOffset((prev) => prev - 700);
+    const scrollAmount = getScrollAmount();
+    setOffset((prev) => prev - scrollAmount);
   };
 
   const onLeftClickHandler = () => {
-    setOffset((prev) => prev + 700);
+    const scrollAmount = getScrollAmount();
+    setOffset((prev) => prev + scrollAmount);
   };
 
   const onRightHoverHandler = () => {
@@ -25,17 +35,17 @@ export const useScrollSlider = (sliderName: string) => {
 
   useEffect(() => {
     const sliderWidth = slider?.scrollWidth;
-  
+
     if (offset >= -10) {
       setIsDisabledLeft(true);
     } else {
       setIsDisabledLeft(false);
     }
 
-    if (sliderWidth && sliderWidth + offset < 1200) {
+    if (sliderWidth && sliderWidth + offset < getScrollAmount()) {
       setIsDisabledRight(true);
     } else {
-    setIsDisabledRight(false);
+      setIsDisabledRight(false);
     }
 
     slider?.setAttribute('style', `transform: translateX(${offset}px)`);

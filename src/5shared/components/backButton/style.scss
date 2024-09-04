@@ -1,0 +1,44 @@
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: self-start;
+  gap: 8px;
+  cursor: pointer;
+
+  &__img {
+    width: 24px;
+    height: 24px;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+      background-color: var(--accent-color);
+
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+  }
+
+  & p {
+    color: var(--accent-color);
+    opacity: 0.6;
+    transition: 0.2s;
+  }
+
+  &:hover {
+    & p {
+      opacity: 1;
+    }
+
+    .back__img-container {
+      opacity: 1;
+    }
+  }
+}
