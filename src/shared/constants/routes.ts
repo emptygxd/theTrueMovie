@@ -1,5 +1,5 @@
 export const ROUTES = {
-  MAIN: '/',
+  MAIN: '/theTrueMovie/',
   MOVIES: '/movies',
   MOVIE_BY_ID: ':movieId',
 
