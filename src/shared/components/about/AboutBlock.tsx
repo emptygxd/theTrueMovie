@@ -54,7 +54,7 @@ export const AboutBlock = ({
               key={`${value.name}_${index}`}
               style={style}
               to={
-                path === ROUTES.PERSONS
+                path === ROUTES.PERSONS && 'id' in value
                   ? `${path}/${value.id}`
                   : `${path}${value.name}`
               }
