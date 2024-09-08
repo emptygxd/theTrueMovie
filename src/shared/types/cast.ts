@@ -6,4 +6,3 @@ export type CastType = {
   sex: string;
   age: number | null;
 };
-

@@ -47,4 +47,3 @@ export type PersonFull = {
 };
 
 export type PersonMovies = Movie[];
-
