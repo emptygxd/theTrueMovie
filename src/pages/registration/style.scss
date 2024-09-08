@@ -1,0 +1,96 @@
+.registration__container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+
+  @media (max-width: 768px) {
+    gap: 50px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+
+  &__container {
+    justify-content: center;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+    @media (max-width: 480px) {
+      gap: 10px;
+    }
+  }
+
+  &__line-between {
+    width: 2px;
+    height: 85%;
+
+    border-radius: 1px;
+    background-color: var(--neutral-hover-color);
+  }
+
+  &__right {
+    width: 250px;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 150px;
+    }
+
+    @media (max-width: 480px) {
+      width: 70px;
+    }
+  }
+
+  &__unit {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    & a {
+      display: inline-block;
+      color: var(--accent-color);
+
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 32px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+}

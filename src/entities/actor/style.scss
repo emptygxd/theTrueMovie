@@ -1,0 +1,100 @@
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-10px);
+    background-color: var(--neutral-hover-color);
+
+    @media (max-width: 480px) {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__photo {
+    height: 200px;
+
+    @media (max-width: 768px) {
+      height: 120px;
+    }
+
+    @media (max-width: 480px) {
+      height: 80px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  &__name {
+    width: 120px;
+    font-size: 16px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      width: 120px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      width: 70px;
+      font-size: 7px;
+    }
+  }
+
+  &__description {
+    width: 120px;
+    height: 18px;
+
+    font-size: 15px;
+
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &-container {
+      position: relative;
+
+      width: 120px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      width: 120px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      width: 70px;
+      height: fit-content;
+      font-size: 6px;
+    }
+  }
+
+  &__profession {
+    width: 120px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    padding: 3px;
+  }
+}

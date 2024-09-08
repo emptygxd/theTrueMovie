@@ -1,0 +1,42 @@
+.movies__description {
+  width: 192px;
+
+  & h3 {
+    height: 20px;
+    font-size: 16px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (max-width: 768px) {
+      height: 12px;
+      font-size: 10px;
+    }
+  }
+
+  & p {
+    height: 15px;
+
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-subtle-color);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (max-width: 768px) {
+      height: 10px;
+      font-size: 8px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 144px;
+  }
+
+  @media (max-width: 768px) {
+    width: 70px;
+  }
+}

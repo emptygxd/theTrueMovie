@@ -1,0 +1,74 @@
+.cross-eye {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+
+  width: 20px;
+  height: 20px;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--text-color);
+    pointer-events: none;
+
+    transform-origin: top right -10px;
+    transform: translate(-2px) rotate(-45deg);
+    transition: 0.1s all ease;
+  }
+
+  & img {
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      width: 15px;
+      height: 15px;
+    }
+
+    @media (max-width: 480px) {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    top: 13px;
+    right: 8px;
+
+    width: 15px;
+    height: 15px;
+  }
+
+  @media (max-width: 480px) {
+    top: -1px;
+    right: 4px;
+
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.shown.cross-eye::after {
+  width: 26px;
+
+  @media (max-width: 768px) {
+    width: 19px;
+  }
+
+  @media (max-width: 480px) {
+    width: 11px;
+    top: 7px;
+    right: -1px;
+    height: 1px;
+  }
+}

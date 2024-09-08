@@ -1,0 +1,168 @@
+.person {
+  &__header {
+    display: flex;
+    gap: 32px;
+
+    @media (max-width: 480px) {
+      gap: 8px;
+    }
+  }
+
+  &__poster {
+    height: 450px;
+
+    @media (max-width: 768px) {
+      height: 180px;
+    }
+
+    @media (max-width: 480px) {
+      height: 80px;
+    }
+  }
+
+  &__name {
+    width: fit-content;
+
+    & > h1 {
+      @media (max-width: 480px) {
+        font-size: 10px;
+      }
+    }
+  }
+
+  &__info {
+    width: fit-content;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    & > h2 {
+      margin-bottom: 16px;
+
+      @media (max-width: 480px) {
+        font-size: 8px;
+        width: fit-content;
+        margin-top: 8px;
+        margin-bottom: 4px;
+      }
+    }
+
+    & .movie__about {
+      &-title {
+        @media (max-width: 480px) {
+          width: 40px;
+        }
+      }
+
+      &-value {
+        &-arr {
+          width: 400px;
+
+          & > a {
+            @media (max-width: 480px) {
+              width: fit-content;
+            }
+          }
+
+          @media (max-width: 1200px) {
+            width: 200px;
+          }
+
+          @media (max-width: 768px) {
+            width: 165px;
+          }
+
+          @media (max-width: 480px) {
+            width: 80px;
+          }
+        }
+
+        @media (max-width: 1200px) {
+          width: 200px;
+        }
+
+        @media (max-width: 768px) {
+          width: 165px;
+          font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+          width: 80px;
+          font-size: 5px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        padding: 2px 0;
+      }
+    }
+  }
+
+  &__en-name {
+    margin-top: 8px;
+    text-align: start;
+    color: var(--text-subtle-color);
+
+    @media (max-width: 480px) {
+      margin-top: 3px;
+      font-size: 8px;
+    }
+  }
+
+  &__age {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-separator {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: inline-block;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+        background-color: var(--text-subtle-color);
+
+        @media (max-width: 480px) {
+          width: 3px;
+          height: 3px;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      gap: 3px;
+      width: fit-content;
+    }
+  }
+
+  &__spouses-container > &__spouses {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    & > a::after {
+      content: '';
+    }
+
+    @media (max-width: 480px) {
+      gap: 3px;
+    }
+  }
+}
+
+.subtle-text {
+  color: var(--text-subtle-color);
+}

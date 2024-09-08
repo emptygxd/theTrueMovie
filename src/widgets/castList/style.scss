@@ -1,0 +1,55 @@
+.cast {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @media (max-width: 1200px) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: 480px) {
+      gap: 8px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 208px;
+    height: fit-content;
+    padding: 8px;
+
+    cursor: pointer;
+
+    & img {
+      height: 216px;
+
+      @media (max-width: 768px) {
+        height: 150px;
+      }
+
+      @media (max-width: 480px) {
+        height: 80px;
+      }
+    }
+
+    &:hover {
+      background-color: var(--neutral-hover-color);
+    }
+
+    @media (max-width: 768px) {
+      width: 160px;
+    }
+
+    @media (max-width: 480px) {
+      width: 80px;
+      padding: 4px;
+    }
+  }
+}
