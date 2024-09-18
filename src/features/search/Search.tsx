@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useSearchInput } from 'shared';
 
-import searchImg from 'public/assets/search.png';
+import { searchImg } from 'assets';
 
 import './style.scss';
 

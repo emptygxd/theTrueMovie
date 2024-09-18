@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FullscreenModal, MENU_ROUTES } from 'shared';
+import {
+  disableScroll,
+  enableScroll,
+  FullscreenModal,
+  MENU_ROUTES,
+} from 'shared';
 
 import './style.scss';
 
@@ -11,17 +16,9 @@ export const Menu = () => {
   const handleClick = () => {
     setIsOpen((prev) => {
       if (prev) {
-        document.body.style.overflowY = 'auto';
-        document.body.style.paddingRight = '';
+        enableScroll();
       } else {
-        const bodyWithScrollbar = document.body.offsetWidth;
-        document.body.style.overflowY = 'hidden';
-
-        const bodyWithoutScrollbar = document.body.offsetWidth;
-
-        const scrollbarWidth = bodyWithoutScrollbar - bodyWithScrollbar;
-
-        document.body.style.paddingRight = scrollbarWidth + 'px';
+        disableScroll();
       }
       return !prev;
     });

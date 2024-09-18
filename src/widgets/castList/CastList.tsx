@@ -4,7 +4,7 @@ import { CastItemDescription, ZeroResults } from 'entities';
 
 import { CastType, ROUTES, SmallLoader } from 'shared';
 
-import noImage from 'public/assets/noImage.jpg';
+import { noImageImg } from 'assets';
 
 import './style.scss';
 
@@ -22,7 +22,11 @@ export const CastList = ({ actors, pages, isFetching }: Props) => {
           return (
             <Link to={`${ROUTES.PERSONS}/${actor.id}`} key={actor.id}>
               <div className="cast__item">
-                <img src={actor.photo ?? noImage} loading="lazy" alt="poster" />
+                <img
+                  src={actor.photo ?? noImageImg}
+                  loading="lazy"
+                  alt="poster"
+                />
 
                 <CastItemDescription actor={actor} />
               </div>

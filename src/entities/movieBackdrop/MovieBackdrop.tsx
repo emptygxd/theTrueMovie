@@ -1,24 +1,44 @@
+import { useState } from 'react';
+
 import { RatingMovie } from 'entities';
 
-import { StyledButton, MovieType, scrollToAnchor } from 'shared';
+import {
+  StyledButton,
+  MovieType,
+  scrollToAnchor,
+  TrailerModal,
+  enableScroll,
+  disableScroll,
+} from 'shared';
 
-import backdrop from 'public/assets/backdrop.png';
-import poster from 'public/assets/poster.png';
+import { backdropImg, posterImg } from 'assets';
 
 import './style.scss';
 
 export const MovieBackdrop = ({ movie }: { movie: MovieType }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const clickHandler = () => {
+    setIsOpen((prev) => {
+      if (prev) {
+        enableScroll();
+      } else {
+        disableScroll();
+      }
+      return !prev;
+    });
+  };
+
   const hours = Math.floor(movie.movieLength / 60);
   const minutes = movie.movieLength % 60;
 
   const onAnchorClick = () => scrollToAnchor('content');
-
   return (
     <>
       <div className="movie__header">
         <div>
           <img
-            src={movie.poster.url ?? poster}
+            src={movie.poster.url ?? posterImg}
             alt="poster"
             className="movie__poster"
           />
@@ -52,16 +72,24 @@ export const MovieBackdrop = ({ movie }: { movie: MovieType }) => {
 
             <div className="movie__buttons">
               <StyledButton callback={onAnchorClick}>Подробнее</StyledButton>
-              <StyledButton>Трейлер</StyledButton>
+              {movie.videos.trailers[0] && (
+                <StyledButton callback={clickHandler}>Трейлер</StyledButton>
+              )}
             </div>
           </div>
         </div>
       </div>
 
       <img
-        src={movie.backdrop.url ?? backdrop}
+        src={movie.backdrop.url ?? backdropImg}
         alt="backdrop"
         className="movie__backdrop"
+      />
+
+      <TrailerModal
+        url={movie.videos.trailers[0]?.url}
+        isOpen={isOpen}
+        closeModal={clickHandler}
       />
     </>
   );

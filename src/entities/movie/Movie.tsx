@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { MoviesType, ROUTES } from 'shared';
 
-import noImage from 'public/assets/noImage.jpg';
+import { noImageImg } from 'assets';
 
 import './style.scss';
 
@@ -21,7 +21,7 @@ export const Movie = ({ movie }: Props) => {
       <img
         className="main-movie__poster"
         loading="lazy"
-        src={movie.poster.url || noImage}
+        src={movie.poster.url || noImageImg}
         alt="poster"
       />
 

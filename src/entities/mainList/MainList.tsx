@@ -23,7 +23,7 @@ export const MainList = ({ movies, container, path }: Props) => {
       <div className="main-movie__wrapper">
         <div className={container}>
           {movies.map((actor: MoviesType, index) => (
-            <Movie key={index} movie={actor} />
+            <Movie key={`${actor}_${index}`} movie={actor} />
           ))}
         </div>
       </div>

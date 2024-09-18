@@ -17,7 +17,7 @@ import {
 
 import './style.scss';
 
-const AllStuff = () => {
+const Movies = () => {
   const filters = useFilters();
 
   const selectedType = filters.selectedType;
@@ -38,7 +38,7 @@ const AllStuff = () => {
           : '';
 
       return http.get(
-        `/movie?page=1&isSeries=${selectedType === 'Сериалы'}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=${selectedType === 'Сериалы' ? 'series-top250' : 'top250'}${genreQuery}${countryQuery}`
+        `/movie?page=1&isSeries=${selectedType === 'Сериалы'}&limit=50&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=${selectedType === 'Сериалы' ? 'series-top250' : 'top250'}${genreQuery}${countryQuery}`,
       );
     },
     select: (data) => {
@@ -79,7 +79,7 @@ const AllStuff = () => {
   }
 
   if (isError) {
-    console.log('error');
+    return <section>Error</section>;
   }
 
   return (
@@ -94,4 +94,4 @@ const AllStuff = () => {
   );
 };
 
-export default AllStuff;
+export default Movies;

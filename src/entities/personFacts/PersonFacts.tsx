@@ -16,7 +16,10 @@ export const PersonFacts = ({ person }: Props) => {
 
         <div className="facts__container">
           {person.facts.map((fact, index) => (
-            <p className="person__age-separator facts__item" key={index}>
+            <p
+              className="person__age-separator facts__item"
+              key={`${fact}_${index}`}
+            >
               {parse(fact.value)}
             </p>
           ))}

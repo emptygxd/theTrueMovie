@@ -1,0 +1,9 @@
+export { default as backdropImg } from './backdrop.png';
+export { default as eyeImg } from './eye.png';
+export { default as leftArrowImg } from './left-arrow.png';
+export { default as noImageImg } from './noImage.jpg';
+export { default as posterImg } from './poster.png';
+export { default as rightArrowImg } from './right-arrow.png';
+export { default as searchImg } from './search.png';
+export { default as topArrowImg } from './top-arrow.png';
+export { default as userImg } from './user.png';

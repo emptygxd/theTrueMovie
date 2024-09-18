@@ -16,7 +16,7 @@ export const RatingMovie = ({ rating }: Props) => {
     'movie__kpScore-value-green': isGreen,
     'movie__kpScore-value-red': isRed,
     'movie__kpScore-value-yellow': !isGreen && !isRed,
-    'movie__kpScore-value-gray': rating === 0,
+    'movie__kpScore-value-gray': !rating,
   });
 
   return (

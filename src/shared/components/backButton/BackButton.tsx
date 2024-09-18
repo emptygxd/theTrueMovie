@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import arrow from 'public/assets/left-arrow.png';
+import { leftArrowImg } from 'assets';
 
 import './style.scss';
 
@@ -14,7 +14,7 @@ export const BackButton = () => {
   return (
     <div className="back" onClick={onClickHandler}>
       <div className="back__img-container">
-        <img className="back__img" src={arrow} alt="left arrow" />
+        <img className="back__img" src={leftArrowImg} alt="left arrow" />
       </div>
       <p>Вернуться</p>
     </div>

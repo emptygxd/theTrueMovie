@@ -11,7 +11,7 @@ export const getFiltersInitialState = ({
 }: Props) => {
   const isGenreExists = GENRES.some((genre) => genre.label === genreToCheck);
   const isCountryExists = COUNTRIES.some(
-    (country) => country.label === countryToCheck
+    (country) => country.label === countryToCheck,
   );
 
   let genreIS = {

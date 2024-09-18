@@ -49,7 +49,7 @@ export const Cast = () => {
   }
 
   if (isError) {
-    return <div>Error: {isError}</div>;
+    return <section>Error</section>;
   }
 
   return (

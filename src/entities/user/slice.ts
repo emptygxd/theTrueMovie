@@ -1,24 +1,23 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type SetUserPayload = {
+type NewType = {
   name: string;
   email: string;
-  password: string;
-  photo: string;
+  photo?: string;
 };
+
+type SetUserPayload = NewType;
 
 type UserState = {
   name: string | null;
   email: string | null;
-  password: string | null;
-  photo: string | null;
+  photo?: string | null;
 };
 
 const initialState: UserState = {
   name: null,
   email: null,
-  password: null,
-  photo: null,
+  // photo: null,
 };
 
 const slice = createSlice({

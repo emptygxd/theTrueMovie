@@ -1,5 +1,4 @@
-import left from 'public/assets/left-arrow.png';
-import right from 'public/assets/right-arrow.png';
+import { leftArrowImg, rightArrowImg } from 'assets';
 
 import './style.scss';
 
@@ -28,7 +27,7 @@ export const ArrowButton = ({
       onMouseOutCapture={onMouseOut}
     >
       <img
-        src={direction === 'left' ? left : right}
+        src={direction === 'left' ? leftArrowImg : rightArrowImg}
         alt={`${direction} arrow`}
       />
     </button>

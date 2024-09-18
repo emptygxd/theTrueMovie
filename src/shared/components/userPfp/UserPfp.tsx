@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { userNameSelector } from 'entities';
 
 import { ROUTES, USER_MENU_ROUTES, UserModal } from 'shared';
 
-import user from 'public/assets/user.png';
+import { userImg } from 'assets';
 
 import './style.scss';
 
 export const UserPfp = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const isUser = useSelector(userNameSelector);
 
   const onMouseOverHandler = () => {
     setIsOpen(true);
@@ -25,10 +30,11 @@ export const UserPfp = () => {
         onMouseOver={onMouseOverHandler}
         onMouseOut={onMouseOutHandler}
       >
-        <Link to={ROUTES.REGISTRATION}>
-          <img className="userPfp" src={user} alt="user profile picture" />
+        <Link to={isUser ? ROUTES.USER : ROUTES.LOGIN}>
+          <img className="userPfp" src={userImg} alt="user profile picture" />
         </Link>
-        {isOpen && <UserModal items={USER_MENU_ROUTES} />}
+
+        {isUser && isOpen && <UserModal items={USER_MENU_ROUTES} />}
       </div>
     </>
   );

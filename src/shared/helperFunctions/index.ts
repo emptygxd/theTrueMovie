@@ -1,4 +1,5 @@
 export * from './capitalizeFirstLetter';
+export * from './controlOverflow';
 export * from './formatDate';
 export * from './formatGrowth';
 export * from './formatNumberWithSpaces';

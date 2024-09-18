@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Cast, Layout, SearchResult } from 'pages';
+import { Cast, Layout, Logout, SearchResult } from 'pages';
 
-import { Loader, ROUTES } from 'shared';
+import { ROUTES } from 'shared';
 
 const Login = lazy(() => import('../pages/login/Login'));
 const Main = lazy(() => import('../pages/main/Main'));
@@ -16,12 +16,12 @@ const ActorsById = lazy(() => import('../pages/actorById/ActorById'));
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path={ROUTES.BASE} element={<Layout />}>
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
 
         <Route path={ROUTES.LOGIN} element={<Login />} />
 
-        <Route path={ROUTES.LOGOUT} element={<Loader />} />
+        <Route path={ROUTES.LOGOUT} element={<Logout />} />
 
         <Route path={ROUTES.MAIN} element={<Main />} />
 

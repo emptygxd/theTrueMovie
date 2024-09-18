@@ -30,7 +30,7 @@ export const ProfessionTabs = ({
       <div className="tabs">
         {professions.map((profession, index) => (
           <button
-            key={profession}
+            key={`${profession}_${index}`}
             className={`tab ${selectedTab === profession ? 'active' : ''}`}
             onClick={() => tabClickHandler(profession)}
           >
@@ -43,7 +43,7 @@ export const ProfessionTabs = ({
         {movies
           .filter((movie) => movie.enProfession === selectedTab)
           .map((movie, index) => (
-            <Link key={index} to={`${ROUTES.MOVIES}/${movie.id}`}>
+            <Link key={`${movie}_${index}`} to={`${ROUTES.MOVIES}/${movie.id}`}>
               <div className="tab__item">
                 <div className="tab__item-name">
                   <h4>{movie.name ?? movie.alternativeName}</h4>

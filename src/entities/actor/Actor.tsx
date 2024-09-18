@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Person } from 'shared';
+import { Person, ROUTES } from 'shared';
 
 import './style.scss';
 
@@ -10,7 +10,7 @@ type Props = {
 
 export const Actor = ({ actor }: Props) => {
   return (
-    <Link to={`/persons/${actor.id}`} className="actor">
+    <Link to={`${ROUTES.BASE}persons/${actor.id}`} className="actor">
       <img
         className="actor__photo"
         loading="lazy"

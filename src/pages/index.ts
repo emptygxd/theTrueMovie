@@ -2,6 +2,7 @@ export * from './actorById';
 export * from './cast';
 export * from './layout';
 export * from './login';
+export * from './logout';
 export * from './movieById';
 export * from './movies';
 export * from './notFound';

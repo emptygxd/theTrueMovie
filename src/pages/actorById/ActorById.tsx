@@ -45,14 +45,14 @@ const ActorsById = () => {
           person.spouses.map((spouse) =>
             http
               .get(`/person/${spouse.id}`)
-              .then((response) => response.data.name as string)
-          )
+              .then((response) => response.data.name as string),
+          ),
         );
 
         const mappedResults = results.map((result) =>
           result.status === 'fulfilled'
             ? (result as PromiseFulfilledResult<string>).value
-            : ''
+            : '',
         );
 
         return mappedResults;
@@ -66,7 +66,7 @@ const ActorsById = () => {
   localStorage.setItem('spouses', JSON.stringify(spouses));
 
   const [selectedTab, setSelectedTab] = useState(
-    person?.movies[0].enProfession ?? 'actor'
+    person?.movies[0].enProfession ?? 'actor',
   );
 
   const tabClickHandler = useCallback((profession: string) => {
@@ -78,7 +78,7 @@ const ActorsById = () => {
   }
 
   if (isError || isErrorSpouse) {
-    return <div>Error: {isError ?? isErrorSpouse}</div>;
+    return <section>Error</section>;
   }
 
   return (

@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { MainList } from 'entities';
+import { MainList, userSelector } from 'entities';
 
 import { http, Loader, MoviesType, PAGE_TITLES } from 'shared';
 
 import './style.scss';
+import { useSelector } from 'react-redux';
+
 const Main = () => {
   useEffect(() => {
     document.title = PAGE_TITLES.MAIN;
   }, []);
-
+  const user = useSelector(userSelector);
+  console.log(user);
   const { isLoading, isError, data } = useQuery({
     queryKey: ['mainMovie'],
     queryFn: () => {
       return http.get(
-        `/movie?page=1&isSeries=false&limit=25&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=top250`
+        `/movie?page=1&isSeries=false&limit=25&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=top250`,
       );
     },
     select: (data) => data.data.docs,
@@ -31,7 +34,7 @@ const Main = () => {
     queryKey: ['mainSeries'],
     queryFn: () => {
       return http.get(
-        `/movie?page=1&isSeries=true&limit=25&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=series-top250`
+        `/movie?page=1&isSeries=true&limit=25&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=movieLength&selectFields=poster&selectFields=rating&selectFields=year&selectFields=genres&notNullFields=top250&sortField=top250&sortType=1&lists=series-top250`,
       );
     },
     select: (data) => data.data.docs,
@@ -44,7 +47,7 @@ const Main = () => {
   }
 
   if (isError || isErrorSeries) {
-    return <section>ошибка</section>;
+    return <section>Error</section>;
   }
 
   return (

@@ -15,7 +15,7 @@ export const Header = () => {
     dispatch(
       themeActions.setTheme({
         theme: theme === 'light' ? 'dark' : 'light',
-      })
+      }),
     );
   }, [dispatch, theme]);
 

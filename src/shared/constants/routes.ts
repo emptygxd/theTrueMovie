@@ -1,31 +1,35 @@
+const BASE = '/theTrueMovie/';
+
 export const ROUTES = {
-  MAIN: '/theTrueMovie/',
-  MOVIES: '/movies',
+  BASE,
+
+  MAIN: '',
+  MOVIES: `${BASE}movies`,
   MOVIE_BY_ID: ':movieId',
 
-  SEARCH_RESULT: '/search',
+  SEARCH_RESULT: `${BASE}search`,
   SEARCH_QUERY: ':query',
 
-  SERIES: '/movies?type=Сериалы',
+  SERIES: `${BASE}movies?type=Сериалы`,
 
-  COUNTRIES: '/countries',
+  COUNTRIES: `${BASE}countries`,
   COUNTRY: ':country',
 
-  GENRES: '/genres',
+  GENRES: `${BASE}genres`,
   GENRE: ':genre',
 
   CAST: 'cast',
-  PERSONS: '/persons',
+  PERSONS: `${BASE}persons`,
   PERSON: ':personId',
 
-  REGISTRATION: '/registration',
-  LOGIN: '/login',
-  LOGOUT: '/logout',
+  REGISTRATION: `${BASE}registration`,
+  LOGIN: `${BASE}login`,
+  LOGOUT: `${BASE}logout`,
 
-  USER: '/user',
-  USER_MOVIES: '/user/movies',
-  USER_SERIES: '/user/series',
-  USER_PERSONS: '/user/persons',
+  USER: `${BASE}user`,
+  USER_MOVIES: 'user/movies',
+  USER_SERIES: 'user/series',
+  USER_PERSONS: 'user/persons',
 };
 
 export const MENU_ROUTES = [

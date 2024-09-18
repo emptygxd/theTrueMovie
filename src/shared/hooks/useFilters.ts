@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Filter, getFiltersInitialState, Value } from 'shared';
+import { Filter, getFiltersInitialState, ROUTES, Value } from 'shared';
 
 export const useFilters = () => {
   const location = useLocation();
@@ -23,10 +23,10 @@ export const useFilters = () => {
   const [selectedType, setSelectedType] = useState<Value>(initialType);
 
   const [selectedGenre, setSelectedGenre] = useState<Filter | null>(
-    initialGenre
+    initialGenre,
   );
   const [selectedCountry, setSelectedCountry] = useState<Filter | null>(
-    initialCountry
+    initialCountry,
   );
 
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ export const useFilters = () => {
     if (selectedCountry && selectedCountry.label !== 'Все страны') {
       params.append('country', selectedCountry.label);
     }
-    navigate(`/movies?${params.toString()}`, { replace: true });
+    navigate(`${ROUTES.BASE}movies?${params.toString()}`, { replace: true });
   }, [selectedType, selectedGenre, selectedCountry, navigate]);
 
   const typeChangeHandler = useCallback(
@@ -48,7 +48,7 @@ export const useFilters = () => {
       const value = event.target.value as Value;
       setSelectedType(value);
     },
-    []
+    [],
   );
 
   const genreChangeHandler = useCallback((newValue: Filter | null) => {

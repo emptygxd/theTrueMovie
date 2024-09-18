@@ -11,7 +11,7 @@ import {
   ROUTES,
 } from 'shared';
 
-import noImage from 'public/assets/noImage.jpg';
+import { noImageImg } from 'assets';
 
 import './style.scss';
 
@@ -24,7 +24,7 @@ export const PersonHeader = ({ person, spouses }: Props) => {
   return (
     <div className="person__header">
       <img
-        src={person.photo ?? noImage}
+        src={person.photo ?? noImageImg}
         alt="photo"
         className="person__poster"
       />
@@ -66,7 +66,7 @@ export const PersonHeader = ({ person, spouses }: Props) => {
               {person.birthPlace.map((item, index) => {
                 if (index === person.birthPlace.length - 1) {
                   return (
-                    <Link to={`/movies`} key={index}>
+                    <Link to={`/movies`} key={`${item}_${index}`}>
                       {item.value}
                     </Link>
                   );
@@ -84,7 +84,7 @@ export const PersonHeader = ({ person, spouses }: Props) => {
               <div className="person__spouses-container">
                 {person.spouses.map((spouse, index) => (
                   <p
-                    key={index}
+                    key={`${spouse}_${index}`}
                     className="movie__about-value-arr person__spouses"
                   >
                     {spouses[index] !== '' && (
@@ -92,7 +92,7 @@ export const PersonHeader = ({ person, spouses }: Props) => {
                         {spouses[index]}
                       </Link>
                     )}
-                    {spouses[index] === '' && <p>?</p>}
+                    {!spouses[index] && <p>?</p>}
                     {spouse.divorced ? `(${spouse.divorcedReason})` : ''}
                     <span className="subtle-text">
                       {getChildrenSuffix(spouse.children)}

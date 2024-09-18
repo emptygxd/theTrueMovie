@@ -1,4 +1,4 @@
-import eye from 'public/assets/eye.png';
+import { eyeImg } from 'assets';
 
 import './style.scss';
 
@@ -10,7 +10,7 @@ type Props = {
 export const ShowPassword = ({ callback, isHidden }: Props) => {
   return (
     <div className={`cross-eye ${isHidden}`}>
-      <img onClick={callback} src={eye} alt="eye" />
+      <img onClick={callback} src={eyeImg} alt="eye" />
     </div>
   );
 };

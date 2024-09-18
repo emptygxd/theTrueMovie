@@ -53,7 +53,7 @@ export const SearchResult = () => {
   }
 
   if (isError) {
-    console.log('er');
+    return <section>Error</section>;
   }
   return (
     <section className="movies">

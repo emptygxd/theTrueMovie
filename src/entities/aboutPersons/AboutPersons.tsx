@@ -4,19 +4,19 @@ export const AboutPersons = ({ persons }: { persons: Person[] }) => {
   const writers = persons.filter((writer) => writer.enProfession === 'writer');
 
   const directors = persons.filter(
-    (director) => director.enProfession === 'director'
+    (director) => director.enProfession === 'director',
   );
   const producers = persons.filter(
-    (producer) => producer.enProfession === 'producer'
+    (producer) => producer.enProfession === 'producer',
   );
   const operators = persons.filter(
-    (operator) => operator.enProfession === 'operator'
+    (operator) => operator.enProfession === 'operator',
   );
   const composers = persons.filter(
-    (composer) => composer.enProfession === 'composer'
+    (composer) => composer.enProfession === 'composer',
   );
   const designers = persons.filter(
-    (designer) => designer.enProfession === 'designer'
+    (designer) => designer.enProfession === 'designer',
   );
   const editors = persons.filter((editor) => editor.enProfession === 'editor');
 

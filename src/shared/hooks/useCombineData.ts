@@ -6,7 +6,7 @@ type CombinedType = CastType | MoviesType;
 
 export const useCombineData = <T extends CombinedType>(
   data1: T[],
-  data2: T[]
+  data2: T[],
 ) => {
   const [combinedMovies, setCombinedMovies] = useState<T[]>([]);
 

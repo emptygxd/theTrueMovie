@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   background-color: var(--secondary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -16,7 +15,7 @@
   z-index: 5;
 
   &__item {
-    min-width: 300px;
+    min-width: 130px;
 
     &:first-child {
       border-radius: 5px 5px 0 0;
@@ -35,20 +34,25 @@
       padding: 7px 0 7px 24px;
 
       @media (max-width: 768px) {
-        padding: 5px 0 5px 16px;
+        padding: 5px 0 5px 10px;
       }
 
       @media (max-width: 480px) {
-        padding: 3px 0 3px 8px;
+        padding: 3px 0 3px 1px;
+        font-size: 5px;
       }
     }
 
+    @media (max-width: 1200px) {
+      min-width: 115px;
+    }
+
     @media (max-width: 768px) {
-      min-width: 200px;
+      min-width: 80px;
     }
 
     @media (max-width: 480px) {
-      min-width: 100px;
+      min-width: 25px;
     }
   }
 }

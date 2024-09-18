@@ -22,6 +22,7 @@
     "baseUrl": ".",
     "paths": {
       "public": ["public/"],
+      "assets": ["src/assets/index.ts"],
       "app": ["src/app/index.ts"],
       "pages": ["src/pages/index.ts"],
       "widgets": ["src/widgets/index.ts"],

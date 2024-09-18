@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import arrow from 'public/assets/top-arrow.png';
+import { topArrowImg } from 'assets';
 
 import './style.scss';
 
@@ -26,7 +26,7 @@ export const ScrollToTop = () => {
 
   return (
     <button ref={btn} className="scroll-to-top" onClick={scrollToTopHandler}>
-      <img src={arrow} alt="top arrow" />
+      <img src={topArrowImg} alt="top arrow" />
     </button>
   );
 };

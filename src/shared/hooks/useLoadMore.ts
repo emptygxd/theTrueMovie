@@ -95,7 +95,7 @@ export const useLoadMore = <T>({
         loadMore();
       }
     },
-    [currentPage, loadMore, totalPages]
+    [currentPage, loadMore, totalPages],
   );
 
   useEffect(() => {

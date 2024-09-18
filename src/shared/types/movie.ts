@@ -84,6 +84,17 @@ type ReleaseYears = {
   end: number;
 };
 
+type Trailers = {
+  name: string;
+  site: string;
+  type: string;
+  url: string;
+};
+
+type Videos = {
+  trailers: Trailers[];
+};
+
 type Votes = {
   await: number;
   filmCritics: number;
@@ -143,6 +154,7 @@ export type MovieType = {
   type: string;
   typeNumber: number;
   updatedAt: string;
+  videos: Videos;
   votes: Votes;
   watchability: Watchability;
   year: number;

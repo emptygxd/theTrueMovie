@@ -25,7 +25,7 @@ export const Actors = ({ persons }: Props) => {
       <div className="actors__wrapper">
         <div className="actors__container">
           {actors.map((actor: Person, index) => (
-            <Actor key={index} actor={actor} />
+            <Actor key={`${actor}_${index}`} actor={actor} />
           ))}
         </div>
       </div>
