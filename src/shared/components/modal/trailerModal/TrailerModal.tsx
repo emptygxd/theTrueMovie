@@ -1,8 +1,9 @@
+import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
 
-import './style.scss';
-import { useSelector } from 'react-redux';
 import { themeSelector } from 'shared';
+
+import './style.scss';
 
 Modal.setAppElement('#root');
 
