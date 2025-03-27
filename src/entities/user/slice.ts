@@ -17,7 +17,6 @@ type UserState = {
 const initialState: UserState = {
   name: null,
   email: null,
-  // photo: null,
 };
 
 const slice = createSlice({

@@ -26,7 +26,6 @@ const ActorsById = () => {
 
   useEffect(() => {
     if (person) {
-      console.log(person.name);
       document.title = person.name ?? person.enName;
     }
   }, [person]);

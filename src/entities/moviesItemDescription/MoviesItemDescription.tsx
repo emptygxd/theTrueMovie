@@ -17,7 +17,6 @@ export const MoviesItemDescription = ({ movie }: Props) => {
 
     hoursString = hours !== 0 ? `${hours} ч ` : '';
   }
-  console.log(movie);
   const russianName = movie.name ?? movie.alternativeName ?? '';
   const altName = movie.name ? movie.alternativeName : null;
   const altNameString = `${altName ?? ''}${altName && movie.year ? ', ' : ''}${movie.year ?? ''}`;

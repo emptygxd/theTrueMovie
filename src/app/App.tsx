@@ -43,16 +43,6 @@ export const App = () => {
           <Route path={ROUTES.PERSON} element={<ActorsById />} />
         </Route>
 
-        {/* <Route path={ROUTES.USER}>
-          <Route index element={<div>user</div>} />
-          <Route path={ROUTES.USER_MOVIES} element={<div>USER_MOVIES </div>} />
-          <Route path={ROUTES.USER_SERIES} element={<div>USER_SERIES </div>} />
-          <Route
-            path={ROUTES.USER_PERSONS}
-            element={<div>USER_PERSONS </div>}
-          />
-        </Route> */}
-
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

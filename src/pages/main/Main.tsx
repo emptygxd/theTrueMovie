@@ -1,19 +1,16 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { MainList, userSelector } from 'entities';
+import { MainList } from 'entities';
 
 import { http, Loader, MoviesType, PAGE_TITLES } from 'shared';
 
 import './style.scss';
-import { useSelector } from 'react-redux';
 
 const Main = () => {
   useEffect(() => {
     document.title = PAGE_TITLES.MAIN;
   }, []);
-  const user = useSelector(userSelector);
-  console.log(user);
   const { isLoading, isError, data } = useQuery({
     queryKey: ['mainMovie'],
     queryFn: () => {

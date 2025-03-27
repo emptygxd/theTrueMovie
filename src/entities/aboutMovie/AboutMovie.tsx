@@ -10,6 +10,7 @@ import {
 } from 'shared';
 
 import './style.scss';
+import { useEffect, useState } from 'react';
 
 export const AboutMovie = ({ movie }: { movie: MovieType }) => {
   const { isLoading, isError, data } = useQuery({
@@ -25,7 +26,6 @@ export const AboutMovie = ({ movie }: { movie: MovieType }) => {
     enabled: movie?.isSeries,
     refetchOnWindowFocus: false,
   });
-
   const series: Series[] = data;
   let seriesAmount;
 
@@ -34,8 +34,17 @@ export const AboutMovie = ({ movie }: { movie: MovieType }) => {
       return acc + element.episodesCount;
     }, 0);
   }
+  
+  const [maxNumber, setMaxNumber] = useState<number | null>(null);
 
   const type = movie.isSeries ? 'Сериалы' : 'Фильмы';
+
+  useEffect(() => {
+    if (series) {
+      const maxNumber = Math.max(...series.map(s => s.number));
+      setMaxNumber(maxNumber);
+    }
+  }, [series]);
 
   if (isLoading) {
     return <Loader />;
@@ -69,7 +78,7 @@ export const AboutMovie = ({ movie }: { movie: MovieType }) => {
         />
         {movie.isSeries && (
           <>
-            <AboutBlock title="Количество сезонов" value={series[0]?.number} />
+            <AboutBlock title="Количество сезонов" value={maxNumber || 0} />
             <AboutBlock title="Количество серий" value={seriesAmount} />
 
             {movie.totalSeriesLength && (
